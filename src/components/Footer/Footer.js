@@ -86,6 +86,8 @@ const Footer = () => {
                           </a>
                           <a href="#">
                             <i className="aaaa fab fa-twitter" tabIndex="0" target="_blank"></i>
+                            <i className="aaaa fab fa-twitter" tabIndex="0" target="_blank"></i>
+
                           </a>
                         </div>
 
