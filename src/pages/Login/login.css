@@ -1,0 +1,91 @@
+.lines{
+    width: 100%;
+    height: 45px;
+    position: relative;
+}
+.line{
+    width: 100%;
+    height: 45px;
+    position: relative;
+}
+.lines::after, .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 1px;
+    background-color: rgb(191 191 191);
+    width: 45%;
+    top:45%;
+}
+.lines::after{
+    left:0;
+}
+.lines::before{
+    right:0;
+}
+.line::after, .line::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 1px;
+    background-color: rgb(191 191 191);
+    width: 45%;
+    top:51%;
+}
+.line::after{
+    left:0;
+}
+.line::before{
+    right:0;
+}
+.circle{
+    height: 40px;
+    width: 40px;
+    border: 2px solid rgb(191 191 191);
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+@media (max-width:768px){
+    .circle{
+        height: 20px;
+        width: 20px;
+    }
+    .lines{
+        height: 25px;
+    }
+}
+
+/* facebook button  */
+
+input,
+.btnn {
+  width: 100%;
+  /* padding: 12px; */
+  text-align: center;
+  border: none;
+  border-radius: 7px;
+  margin: 5px 0;
+  opacity: 1;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btnn:hover {
+    opacity: 0.90;
+    color: white;
+}
+.fb {
+    background-color: rgb(66 103 178);
+    color: white;
+  }
+  .aa{
+    background-color: #0070cd !important;
+
+  }

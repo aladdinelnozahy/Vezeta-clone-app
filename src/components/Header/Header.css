@@ -1,0 +1,17 @@
+.text-dark-silver {
+  color: var(--color-dark-silver) !important;
+}
+.text-grey {
+  color: var(--color-grey) !important;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+.fs-19 {
+  font-size: 19px;
+}
+
+.w-85 {
+  width: 85% !important;
+}

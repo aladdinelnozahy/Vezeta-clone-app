@@ -1,0 +1,10 @@
+.w-85 {
+  width: 85% !important;
+}
+
+.bg-color-porcelain {
+  background-color: var(--bg-color-porcelain) !important;
+}
+.bg-mercury {
+  background-color: var(--bg-color-mercury) !important;
+}

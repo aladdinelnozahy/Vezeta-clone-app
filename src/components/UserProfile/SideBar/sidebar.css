@@ -1,0 +1,23 @@
+.spanStyle{
+    color: rgb(153, 153, 153);
+}
+.spanStyle:active{
+    color: white;
+}
+
+.listgroupItem{
+    text-align: center; 
+   
+}
+.listgroupItem:active{
+    background-color: rgb(0 112 205);
+    color: white;
+
+}
+
+/* .listStyle{
+    border-radius: 100px;
+} */
+.aaa{
+    background-color: rgb(0 112 205) !important;
+}

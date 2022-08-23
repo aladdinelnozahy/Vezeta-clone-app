@@ -1,0 +1,39 @@
+.text-normal-anchor {
+  color: var(--color-normal-anchor) !important;
+}
+
+.text-grey {
+  color: var(--color-grey) !important;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.px-50 {
+  padding-right: 0.12rem !important;
+  padding-left: 0.12rem !important;
+}
+.my-50 {
+  margin-top: 0.12rem !important;
+  margin-bottom: 0.12rem !important;
+}
+.time-hover:hover {
+  color: #fff !important;
+  background-color: var(--color-normal-anchor) !important;
+}
+
+.not-available-opacity {
+  opacity: 0.7 !important;
+}
+.booking-opacity:hover {
+  opacity: 0.8 !important;
+}
+
+.disabled {
+  cursor: not-allowed;
+}

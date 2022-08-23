@@ -1,0 +1,49 @@
+.text-dark-silver {
+  color: var(--color-dark-silver) !important;
+}
+.text-grey {
+  color: var(--color-grey) !important;
+}
+
+.accordion-button {
+  font-size: 11px !important;
+}
+.accordion-body {
+  font-size: 10px !important;
+}
+.accordion-item {
+  border: none !important;
+}
+
+.start-10 {
+  left: 10% !important;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .start-md-5 {
+    left: 5% !important;
+  }
+  .accordion-button-md {
+    font-size: 16px !important;
+  }
+  .accordion-body-md {
+    font-size: 15px !important;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}
