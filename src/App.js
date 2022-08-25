@@ -7,27 +7,29 @@ import Login from './pages/Login/login';
 import SignUp from './pages/SignUp/signup';
 import ChangePass from './components/ChangePass/ChangePass';
 import UserProfile from './components/UserProfile/userprofile';
-
+import FilterContextProvider from './contexts/AllDoctors_Filter.jsx';
 
 function App() {
   return (
     <>
       <Router>
         <Navbar_c />
-        <Switch>
-          <Route path="/" exact component={Home} />
-              <Route path="/Home" exact component={Home} />
-              <Route path="/Login" exact component={Login} />
+        <FilterContextProvider>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/Home" exact component={Home} />
+            <Route path="/Login" exact component={Login} />
             <Route path="/Register" exact component={SignUp} />
-          {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/UserProfile" exact component={UserProfile} />
+            {/* <Route path="/" exact component={Home} /> */}
+            <Route path="/UserProfile" exact component={UserProfile} />
 
-          <Route exact path="/changepassword" component={ChangePass} />
+            <Route exact path="/changepassword" component={ChangePass} />
 
-          <Route path="/all-doctors" exact component={AllDoctors} />
-          <Route path="/doctor/:id" exact component={AboutDoctor} />
-          {/* <Route path="/doctor" exact component={AboutDoctor} /> */}
-        </Switch>
+            <Route path="/all-doctors" exact component={AllDoctors} />
+            <Route path="/doctor/:id" exact component={AboutDoctor} />
+            {/* <Route path="/doctor" exact component={AboutDoctor} /> */}
+          </Switch>
+        </FilterContextProvider>
         <Footer />
       </Router>
       {/* <Navbar1 />
