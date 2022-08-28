@@ -8,6 +8,7 @@ import CountrySelect from '../../components/UserProfile/countryDropDown';
 import { FormControlLabel, Radio, RadioGroup, Switch } from '@mui/material';
 import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
+import { t } from 'i18next';
 
 const SignUp = () => {
 
@@ -49,7 +50,7 @@ const SignUp = () => {
                 <ListGroup
                     className="listStyle m-3 col" as="ul">
                     <ListGroup.Item className="aa cardhead listgroupItem" as="li">
-                        <p className="text-center text-light cardhead"> Signup</p>
+                        <p className="text-center text-light cardhead">   {t('signuphead')}</p>
                     </ListGroup.Item>
 
                     <ListGroup.Item >
@@ -58,14 +59,15 @@ const SignUp = () => {
                             <Form.Group
                             >
                                 <Form.Label column className="mx-4" >
-                                    Name
+                                    
+                                    {t('name')}
                                 </Form.Label>
                                 <Col className=" mx-2" >
                                 <input    />
 
                                     <Form.Control
                                         type="text"
-                                        placeholder={"name"}
+                                        placeholder={t('name')}
                                         name='userName'
                                         required
                                         onChange={e => setName(e.target.value)}                                    />
@@ -77,12 +79,13 @@ const SignUp = () => {
                             <Form.Group
                             >
                                 <Form.Label column className="mx-4" >
-                                    Email
+                                    
+                                    {t('email')}
                                 </Form.Label>
                                 <Col className=" mx-2" >
                                     <Form.Control
                                         type="text" 
-                                        placeholder={"email"}
+                                        placeholder={t('email')}
                                         name='userEmail'
                                         required
                                         onChange={e => setEmail(e.target.value)} 
@@ -95,12 +98,12 @@ const SignUp = () => {
                             <Form.Group
                             >
                                 <Form.Label column className="mx-4" >
-                                    phone number
+                                    {t('phone')}
                                 </Form.Label>
                                 <Col className=" mx-2" >
                                     <Form.Control
                                         type="text" 
-                                        placeholder={"phone number"}
+                                        placeholder={t('phone')}
                                         name='phoneNumber'
                                         required
                                         
@@ -117,14 +120,14 @@ const SignUp = () => {
                             // as={Row} className="mb-3" controlId="formPlaintextPassword"
                             >
                                 <Form.Label column className="mx-4">
-                                    Password
+                                    {t('password')}
                                 </Form.Label>
                                 <Col className="mx-2">
 
                                     <Form.Control
                                         onChange={e => setPassword(e.target.value)}
                                         type="password"
-                                        placeholder={"password"}
+                                        placeholder={t('password')}
                                         name='userPassword'
                                         required
                                     />
@@ -137,13 +140,13 @@ const SignUp = () => {
                             // as={Row} className="mb-3" controlId="formPlaintextPassword"
                             >
                                 <Form.Label column className="mx-4">
-                                    Confirm Password
+                                    {t('age')}
                                 </Form.Label>
                                 <Col className="mx-2">
                                     <Form.Control
                                         onChange={e => setConf(e.target.value)}
                                         type="password"
-                                        placeholder={"conf"}
+                                        placeholder={t('age')}
                                         name='userAge'
                                         required
                                     />
@@ -156,7 +159,7 @@ const SignUp = () => {
                             // as={Row} className="mb-3" controlId="formPlaintextPassword"
                             >
                                 <Form.Label column className="mx-4">
-                                    UPLOAD IMAGE
+                                    {t('image')}
                                 </Form.Label>
                                 <Col className="mx-2">
 
@@ -178,7 +181,7 @@ const SignUp = () => {
                                         size="sm"
                                         
                                         >
-                                            Sign Up
+                                            {t('signupbutton')}
                                         </Button>
 
                                     </div>

@@ -78,7 +78,20 @@
     
     "downloadhead":"Download Vezeeta Application",
     "downloadbody":"Search, compare and book doctor consultations with ease. Order your medicines & get them deilvered within 60 minutes. Track your steps count & earn points on hitting the daily goal",
-    
+  
+  
+    "signuphead":"Sign Up",
+    "name":"Name",
+    "email":"Email Address",
+    "phone":"Phone Number",
+    "password":"Password",
+    "age":"Age",
+    "image":"Upload Image",
+    "signupbutton":"Sign Up",
+
+
+
+
     
     "docspecialise":"All Specialities",
     "filterhead":"Filter",
@@ -88,6 +101,10 @@
     "":"",
     "":"",
     "":""
+
+
+
+
 
 
 

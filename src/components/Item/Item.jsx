@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Item.css';
 import { Booking } from '../../components';
 import images from '../../constants/images';
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
-
-
 export default function Item(props) {
   const { i18n } = useTranslation();
-  // console.log(i18n.language)
 
-
+  const handleRoute = () => {
+    // props.history.push('/doctor');
+    props.history.push(`/doctor/${props.data._id}`);
+  };
 
   const padges = {
     Hygiene: 'fa-hand-sparkles',
@@ -23,7 +23,7 @@ export default function Item(props) {
     <>
       <div
         className="container-fluid my-3  top-rounded bg-light item-hover position-relative"
-        onClick={() => props.handleRoute()}
+        onClick={() => handleRoute()}
       >
         <div className="row">
           <div className="my-5 d-flex flex-column flex-lg-row justify-content-md-center justify-content-lg-center align-content-center">
@@ -60,7 +60,7 @@ export default function Item(props) {
                     </p>
                   </div>
                   <p className="d-inline-block text-truncate p-trunc p-md-trunc text-grey fw-semibold fs-14">
-                    {i18n.language=='ar'?props.data.doctorSpecialization.specialization_arabic:props.data.doctorSpecialization.specialization_english}
+                  {i18n.language=='ar'?props.data.doctorSpecialization.specialization_arabic:props.data.doctorSpecialization.specialization_english}
                   </p>
                   <div className="rating">
                     <div className="rate">
@@ -80,8 +80,9 @@ export default function Item(props) {
                   <div className="badges d-flex flex-wrap justify-content-start align-content-center">
                     <div className="mx-1 border border-1 rounded-pill px-2 bg-light fs-12 text-grey">
                       <i
-                        className={`fa-solid ${padges[props.data.doctorPadges[0]]
-                          } text-normal-anchor`}
+                        className={`fa-solid ${
+                          padges[props.data.doctorPadges[0]]
+                        } text-normal-anchor`}
                       ></i>
                       &nbsp;{props.data.doctorPadges[0]}
                     </div>
@@ -111,11 +112,7 @@ export default function Item(props) {
                       &nbsp;&nbsp;&nbsp;{' '}
                       <span>
                         {props.data.doctorLocation},&nbsp;
-                        
-                        {/* {props.data.doctorClinics[0]['place'][0].placeEnglish} */}
-
                         {i18n.language=='ar'?props.data.doctorClinics[0]['place'][0].placeArabic:props.data.doctorClinics[0]['place'][0].placeEnglish}&nbsp;
-
                       </span>
                     </p>
                   </div>

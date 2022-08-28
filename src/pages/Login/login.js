@@ -12,6 +12,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import CountrySelect from '../../components/UserProfile/countryDropDown';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { t } from 'i18next';
 
 const Login = () => {
 
@@ -67,12 +68,12 @@ const Login = () => {
                             <Form.Group
                             >
                                 <Form.Label column className="mx-4" >
-                                    Email
+                                {t('email')}
                                 </Form.Label>
                                 <Col className=" mx-2" >
                                     <Form.Control
                                         type="email"
-                                        placeholder={"email"}
+                                        placeholder={t('email')}
                                         name='userEmail'
                                         required
                                         onChange={e => setEmail(e.target.value)}
@@ -86,14 +87,14 @@ const Login = () => {
                             // as={Row} className="mb-3" controlId="formPlaintextPassword"
                             >
                                 <Form.Label column className="mx-4">
-                                    Password
+                                {t('password')}
                                 </Form.Label>
                                 <Col className="mx-2">
 
                                     <Form.Control
                                         onChange={e => setPassword(e.target.value)}
                                         type="password"
-                                        placeholder={"password"}
+                                        placeholder={t('password')}
                                         name='userPassword'
                                         required
                                     />
@@ -112,7 +113,7 @@ const Login = () => {
                                         size="sm"
                                         
                                         >
-                                            Login
+                                            {t('login')}
                                         </Button>
 
                                     </div>
