@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './SearchItems.css';
 import { specialization, location } from '../../constants/data';
@@ -25,6 +26,9 @@ export default function SearchItems() {
     setHomeSearch,
     filter,
   } = useContext(FilterContext);
+  //  second way to use history object without using props
+  // using useHistory Hook to destruct history object
+  const history = useHistory();
 
   const [specialty, setSpecialty] = useState('default');
   const [city, setCity] = useState('default');
@@ -112,6 +116,8 @@ export default function SearchItems() {
     setCity('default');
     setSpecialty('default');
     setDoctorName('Doctor name');
+    // function which firing and redirect to doctor page
+    history.push('/all-doctors');
   };
 
   return (
