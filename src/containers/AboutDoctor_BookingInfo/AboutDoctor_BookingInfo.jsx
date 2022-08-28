@@ -5,15 +5,16 @@ import { AboutDoctorContext } from '../../contexts/AboutDoctor';
 
 export default function AboutDoctor_BookingInfo() {
   const [renderVariable, setRenderVariable] = useState();
-  const [currentClinic, setCurrentClinic] = useState('');
+  // const [currentClinic, setCurrentClinic] = useState('');
+  var currentClinic;
   let clinicData = [];
-
   const { doctorData, setDoctorData } = useContext(AboutDoctorContext);
 
   const clinicHandler = (e) => {
     const attribute = e.target.attributes.data_attribute.nodeValue;
-    setCurrentClinic(clinicData[Number(attribute)]);
-    console.log('currentClinic', currentClinic);
+    currentClinic = clinicData[0];
+    // setCurrentClinic(clinicData[Number(attribute)]);
+    currentClinic = clinicData[Number(attribute)];
   };
   const activeVariable = () => {
     return (
@@ -115,12 +116,11 @@ export default function AboutDoctor_BookingInfo() {
               );
             })}
           </div>
-          {console.log(clinicData)}
         </div>
         <div className="border-bottom border-secondary py-1 px-1 my-4">
           <div className=" ">
             <p
-              className="accordion-header fs-14 text-grey fw-bold px-4 accordion-button collapsed text-capitalize"
+              className="accordion-header  fs-14 text-grey fw-bold px-4 accordion-button collapsed text-capitalize"
               data-bs-toggle="collapse"
               data-bs-target="#collapse-title"
               aria-expanded="true"

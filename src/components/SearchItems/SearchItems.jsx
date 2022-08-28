@@ -14,6 +14,7 @@ export default function SearchItems() {
   const {
     gender,
     setGender,
+    examination,
     setExamination,
     entity,
     setEntity,
@@ -22,17 +23,23 @@ export default function SearchItems() {
     title,
     setTitle,
     initialHomeSearchState,
-    homeSearch,
-    setHomeSearch,
+    // homeSearch,
+    // setHomeSearch,
+    specialty,
+    setSpecialty,
+    city,
+    setCity,
+    doctorName,
+    setDoctorName,
     filter,
   } = useContext(FilterContext);
   //  second way to use history object without using props
   // using useHistory Hook to destruct history object
   const history = useHistory();
 
-  const [specialty, setSpecialty] = useState('default');
-  const [city, setCity] = useState('default');
-  const [doctorName, setDoctorName] = useState('Doctor name');
+  // const [specialty, setSpecialty] = useState('');
+  // const [city, setCity] = useState('');
+  // const [doctorName, setDoctorName] = useState('Doctor name');
 
   const [homeQuery, setHomeQuery] = useState('');
 
@@ -60,8 +67,28 @@ export default function SearchItems() {
   };
   const inputTextHandler = (e) => {
     const value = e.target.value;
-    setCity('default');
-    setSpecialty('default');
+    setTitle([
+      { name: 'professor', value: false },
+      { name: 'lecturer', value: false },
+      { name: 'consultant', value: false },
+      { name: 'specialist', value: false },
+    ]);
+    setAvailability([
+      { name: 'any', value: false },
+      { name: 'today', value: false },
+      { name: 'tomorrow', value: false },
+    ]);
+    setEntity([
+      { name: 'hospital', value: false },
+      { name: 'clinic', value: false },
+    ]);
+    setGender([
+      { name: 'female', value: false },
+      { name: 'male', value: false },
+    ]);
+    setExamination('');
+    setCity('');
+    setSpecialty('');
     setDoctorName(value);
   };
   //   useEffect(() => {
@@ -85,39 +112,41 @@ export default function SearchItems() {
     // setHomeSearch(initialHomeSearchState);
     // console.log('homeeeeee', homeSearch);
     // resetHomeSearchState();
-    if (doctorName !== 'Doctor name') {
-      let newHomeSearch = [...homeSearch]; // copying the old datas array
-      let ele = newHomeSearch.findIndex((v) => v['name'] === 'doctorName');
-      newHomeSearch[ele]['value'] = true; // replace e.target.value with whatever you want to change it to
-      setHomeSearch(newHomeSearch);
-    } else if (doctorName == 'Doctor name') {
-      if (city !== 'default' && specialty == 'default') {
-        let newHomeSearch = [...homeSearch]; // copying the old datas array
-        let ele = newHomeSearch.findIndex((v) => v['name'] === 'city');
-        newHomeSearch[ele]['value'] = true; // replace e.target.value with whatever you want to change it to
-        setHomeSearch(newHomeSearch);
-      } else if (specialty !== 'default' && city == 'default') {
-        let newHomeSearch = [...homeSearch]; // copying the old datas array
-        let ele = newHomeSearch.findIndex((v) => v['name'] === 'specialty');
-        newHomeSearch[ele]['value'] = true; // replace e.target.value with whatever you want to change it to
-        setHomeSearch(newHomeSearch);
-      } else if (specialty !== 'default' && city !== 'default') {
-        let newHomeSearch = [...homeSearch]; // copying the old datas array
-        let ele1 = newHomeSearch.findIndex((v) => v['name'] === 'city');
-        let ele2 = newHomeSearch.findIndex((v) => v['name'] === 'specialty');
-        newHomeSearch[ele1]['value'] = true; // replace e.target.value with whatever you want to change it to
-        newHomeSearch[ele2]['value'] = true; // replace e.target.value with whatever you want to change it to
-        setHomeSearch(newHomeSearch);
-      }
-    }
+    // //////////////////////////////////////////
+    // if (doctorName !== 'Doctor name') {
+    //   let newHomeSearch = [...homeSearch]; // copying the old datas array
+    //   let ele = newHomeSearch.findIndex((v) => v['name'] === 'doctorName');
+    //   newHomeSearch[ele]['value'] = true; // replace e.target.value with whatever you want to change it to
+    //   setHomeSearch(newHomeSearch);
+    // } else if (doctorName == 'Doctor name') {
+    //   if (city !== 'default' && specialty == 'default') {
+    //     let newHomeSearch = [...homeSearch]; // copying the old datas array
+    //     let ele = newHomeSearch.findIndex((v) => v['name'] === 'city');
+    //     newHomeSearch[ele]['value'] = true; // replace e.target.value with whatever you want to change it to
+    //     setHomeSearch(newHomeSearch);
+    //   } else if (specialty !== 'default' && city == 'default') {
+    //     let newHomeSearch = [...homeSearch]; // copying the old datas array
+    //     let ele = newHomeSearch.findIndex((v) => v['name'] === 'specialty');
+    //     newHomeSearch[ele]['value'] = true; // replace e.target.value with whatever you want to change it to
+    //     setHomeSearch(newHomeSearch);
+    //   } else if (specialty !== 'default' && city !== 'default') {
+    //     let newHomeSearch = [...homeSearch]; // copying the old datas array
+    //     let ele1 = newHomeSearch.findIndex((v) => v['name'] === 'city');
+    //     let ele2 = newHomeSearch.findIndex((v) => v['name'] === 'specialty');
+    //     newHomeSearch[ele1]['value'] = true; // replace e.target.value with whatever you want to change it to
+    //     newHomeSearch[ele2]['value'] = true; // replace e.target.value with whatever you want to change it to
+    //     setHomeSearch(newHomeSearch);
+    //   }
+    // }
+    // //////////////////////////////////////////
   };
   // 👇️ reset to initial state
   const searchHandler = () => {
     // resetHomeSearchState();
-    homeFilterHandler();
-    setCity('default');
-    setSpecialty('default');
-    setDoctorName('Doctor name');
+    // homeFilterHandler();
+    // setCity('');
+    // setSpecialty('');
+    // setDoctorName('Doctor name');
     // function which firing and redirect to doctor page
     history.push('/all-doctors');
   };
@@ -138,7 +167,7 @@ export default function SearchItems() {
               value={specialty}
               onChange={(event) => selectHandler(event)}
             >
-              <option value="default">Choose specialty</option>
+              <option value="">Choose specialty</option>
               {specialization.map((item, index) => {
                 return (
                   <option value={item} key={index}>
@@ -162,7 +191,7 @@ export default function SearchItems() {
               onChange={(event) => selectHandler(event)}
               value={city}
             >
-              <option value="default">Choose city</option>
+              <option value="">Choose city</option>
               {location.map((item, index) => {
                 return (
                   <option value={item} key={index}>

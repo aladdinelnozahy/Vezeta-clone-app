@@ -17,7 +17,7 @@ export default function AllDoctors_Results(props) {
   // using useState to store doctors result from API
   const [doctors, setDoctors] = useState([]);
   // using useState to general data from API
-  const [generalData, setGeneralData] = useState([]);
+  // const [generalData, setGeneralData] = useState([]);
   // handle choosing element
   const handleSortSelection = (index) => {
     setCurrentSortItem(() => sortItems[index]);
@@ -30,18 +30,18 @@ export default function AllDoctors_Results(props) {
 
   // using useEffect Hook to start using API integration
   // we are using didMount life cycle method which start automatically after rendering
-  useEffect(() => {
-    axios
-      .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search')
-      // .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search?page=4')
-      .then((res) => {
-        // set doctors from API response
-        setDoctors(res.data.body);
-        setGeneralData(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {});
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search')
+  //     // .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search?page=4')
+  //     .then((res) => {
+  //       // set doctors from API response
+  //       setDoctors(res.data.body);
+  //       setGeneralData(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {});
+  // }, []);
 
   return (
     <>
@@ -52,7 +52,7 @@ export default function AllDoctors_Results(props) {
               All Specialities
             </p>
             <p className="text-grey fs-14 lh-xlg  my-0">
-              &nbsp;<span>{generalData.totalDoctors}</span>&nbsp;Doctors
+              &nbsp;<span>{props.generalData.totalDoctors}</span>&nbsp;Doctors
             </p>
           </div>
           <div className="d-block w-50 d-md-none ">

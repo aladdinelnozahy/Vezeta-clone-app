@@ -20,7 +20,6 @@ export default function AllDoctors_Main() {
 
   useEffect(() => {
     axios
-      // .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search')
       .get(
         `https://vezeeta-data-api.herokuapp.com/user-doctor-search?page=${page}`
       )
@@ -39,7 +38,10 @@ export default function AllDoctors_Main() {
         <div className="row col-12 ms-auto me-auto">
           <div className="d-flex justify-content-evenly align-content-center border border-1 py-4 px-0">
             <AllDoctors_Sidebar />
-            <AllDoctors_Results doctorsData={doctors} />
+            <AllDoctors_Results
+              doctorsData={doctors}
+              generalData={generalData}
+            />
           </div>
         </div>
         <div className="container-fluid d-flex justify-content-evenly align-content-center ">

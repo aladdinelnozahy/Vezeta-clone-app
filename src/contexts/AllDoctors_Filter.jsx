@@ -4,6 +4,9 @@ export const FilterContext = createContext();
 
 const FilterContextProvider = (props) => {
   const [examination, setExamination] = useState('');
+  const [specialty, setSpecialty] = useState('');
+  const [city, setCity] = useState('');
+  const [doctorName, setDoctorName] = useState('Doctor name');
 
   const [gender, setGender] = useState([
     { name: 'female', value: false },
@@ -41,15 +44,18 @@ const FilterContextProvider = (props) => {
     { name: 'entity', value: [] },
     { name: 'gender', value: [] },
     { name: 'examination', value: '' },
-    { name: 'homeSearch', value: [] },
+    { name: 'specialty', value: '' },
+    { name: 'city', value: '' },
+    { name: 'doctorName', value: '' },
+    // { name: 'homeSearch', value: [] },
   ]);
   //   useEffect for homeSearch
-  useEffect(() => {
-    let truthyValue = homeSearch.filter((hSearch) => hSearch['value'] == true);
-    let newFilter = [...filter]; // copying the old datas array
-    newFilter[5]['value'] = truthyValue; // replace e.target.value with whatever you want to change it to
-    setFilter(newFilter);
-  }, [homeSearch]);
+  // useEffect(() => {
+  //   let truthyValue = homeSearch.filter((hSearch) => hSearch['value'] == true);
+  //   let newFilter = [...filter]; // copying the old datas array
+  //   newFilter[5]['value'] = truthyValue; // replace e.target.value with whatever you want to change it to
+  //   setFilter(newFilter);
+  // }, [homeSearch]);
   //   useEffect for title
   useEffect(() => {
     let truthyValue = title.filter((title) => title['value'] == true);
@@ -86,6 +92,24 @@ const FilterContextProvider = (props) => {
     newFilter[4]['value'] = examination; // replace e.target.value with whatever you want to change it to
     setFilter(newFilter);
   }, [examination]);
+  //   useEffect for examination
+  useEffect(() => {
+    let newFilter = [...filter]; // copying the old datas array
+    newFilter[5]['value'] = specialty; // replace e.target.value with whatever you want to change it to
+    setFilter(newFilter);
+  }, [specialty]);
+  //   useEffect for examination
+  useEffect(() => {
+    let newFilter = [...filter]; // copying the old datas array
+    newFilter[6]['value'] = city; // replace e.target.value with whatever you want to change it to
+    setFilter(newFilter);
+  }, [city]);
+  //   useEffect for examination
+  useEffect(() => {
+    let newFilter = [...filter]; // copying the old datas array
+    newFilter[7]['value'] = doctorName; // replace e.target.value with whatever you want to change it to
+    setFilter(newFilter);
+  }, [doctorName]);
 
   useEffect(() => {
     // setHomeSearch(initialHomeSearchState);
@@ -107,8 +131,14 @@ const FilterContextProvider = (props) => {
         title,
         setTitle,
         initialHomeSearchState,
-        homeSearch,
-        setHomeSearch,
+        // homeSearch,
+        // setHomeSearch,
+        specialty,
+        setSpecialty,
+        city,
+        setCity,
+        doctorName,
+        setDoctorName,
         filter,
       }}
     >

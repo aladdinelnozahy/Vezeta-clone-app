@@ -12,6 +12,7 @@ export default function AllDoctors_Sidebar() {
     setAvailability,
     title,
     setTitle,
+    setDoctorName,
     filter,
   } = useContext(FilterContext);
   const [filterQuery, setFilterQuery] = useState([]);
@@ -20,7 +21,7 @@ export default function AllDoctors_Sidebar() {
     const attribute = e.target.attributes.data_attribute.nodeValue;
     const value = e.target.value;
     console.log(value);
-
+    setDoctorName('Doctor name');
     if (attribute == 'examination') {
       console.log('value is', value);
       setExamination(value);
@@ -90,6 +91,7 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
+                    // checked={title[0]['value']}
                     value="professor"
                     id="professor"
                     data_attribute="title"
