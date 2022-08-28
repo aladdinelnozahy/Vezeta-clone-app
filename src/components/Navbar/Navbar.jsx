@@ -1,15 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
 import './Navbar.css';
-
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useTranslation } from "react-i18next";
+import i18next from 'i18next';
+
+const languages=[
+  {
+    code:'ar',
+    name: 'العربية',
+    country_code:'sa',
+    dir:"rtl"
+  },
+  {
+    code:'en',
+    name: 'English',
+    country_code:'gb'
+  }
+  
+
+]
+
 export default function Navbar_c() {
+  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
+  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
+  const { t } = useTranslation()
+
+  useEffect(()=>{
+    console.log(currentLanguage)
+    document.body.dir= currentLanguage.dir||'ltr'
+  },[currentLanguage, t])
   return (
     <>
+      {/* {t('welcome_message')} */}
+
       {['lg'].map((expand) => (
         <Navbar
           key={expand}
@@ -30,7 +57,9 @@ export default function Navbar_c() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+                {t('canvas')}
+
+                  
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -41,7 +70,7 @@ export default function Navbar_c() {
                     className=" border border-while "
                     id="NavLinkHeaderLinkSing"
                   >
-                    Sing Up
+                {t('signup')}
                   </Nav.Link>
                   <Nav.Link
                     href="/"
@@ -56,7 +85,7 @@ export default function Navbar_c() {
                     active
                     className="NavLinkHeaderLink"
                   >
-                    log in
+                {t('login')}
                   </Nav.Link>
                   <Nav.Link
                     href="#action1"
@@ -71,7 +100,7 @@ export default function Navbar_c() {
                     active
                     className="NavLinkHeaderLink"
                   >
-                    vezeeta For Doctors
+                {t('vezeta_doctor')}
                   </Nav.Link>
                   <Nav.Link
                     href="#action1"
@@ -86,9 +115,51 @@ export default function Navbar_c() {
                     active
                     className="NavLinkHeaderLink"
                   >
-                    Contact Us
+                {t('contactus')}
                   </Nav.Link>
-                  <Nav.Link
+                  
+
+
+
+
+
+
+
+                  <NavDropdown
+                    title="Language"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}>
+
+                    {languages.map(({code,name,country_code}) =>(
+                      <li key={country_code}>
+                        <button className='dropdown-item' onClick={()=>i18next.changeLanguage(code)}>
+                          <span className={`flag-icon flag-icon-${country_code} mx-2`}> 
+                            {name}
+                          </span>  
+                        </button>
+                      </li>
+
+                    ))}
+
+                    {/* <NavDropdown.Item onClick={()=>i18next.changeLanguage(code)}>العربية</NavDropdown.Item>  */}
+
+
+                  </NavDropdown>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                  {/* <Nav.Link
                     href="#action1"
                     active
                     className="NavLinkHeaderLink"
@@ -108,7 +179,7 @@ export default function Navbar_c() {
                     <NavDropdown.Item href="#action5">
                       Something else here
                     </NavDropdown.Item>
-                  </NavDropdown>
+                  </NavDropdown> */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

@@ -6,16 +6,51 @@ import Badge from 'react-bootstrap/Badge';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Offers.css';
+
+import { useEffect } from 'react';
+import { useTranslation } from "react-i18next";
+const languages = [
+  {
+    code: 'ar',
+    name: 'العربية',
+    country_code: 'sa',
+    dir: "rtl"
+  },
+  {
+    code: 'en',
+    name: 'English',
+    country_code: 'gb'
+  }
+
+
+]
+
 export default function Offers() {
+  const currentLanguageCode = localStorage.getItem('i18nextLng') || 'en'
+  const currentLanguage = languages.find((l) => l.code == currentLanguageCode)
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    console.log(currentLanguage)
+    document.body.dir = currentLanguage.dir || 'ltr'
+  }, [currentLanguage, t])
+
+
+
+
+  // {t('serviceheader')}
+
   const names = [
-    'Teeth Cleaning',
-    'Facial Cleansing',
-    'Metal Braces',
-    'Face peeling',
-    'Vitamin D',
-    'Laser Hair Removal',
-    'Weight Loss',
-    'Vision Correction',
+    t('offersteeth'),
+    t('offersfacial'),
+    t('offersmetalbra'),
+    t('offersface'),
+    t('offershair'),
+    t('offersvitamin'),
+    t('offersweight'),
+    t('offersvission'),
+
+    
   ];
   const images = [
     'Images/offer1.jpg',
@@ -95,7 +130,8 @@ export default function Offers() {
               <Col lg={8} className="ms-5 ps-3">
                 {' '}
                 <img className="corona" src="Images/corona.jfif" alt="corna" />
-                &nbsp; Corona Symptoms ?
+                &nbsp;{t('offerscorona')}
+
               </Col>
             </Row>
             <Row className="secoundRowTextp-0 m-0 ">
@@ -104,9 +140,7 @@ export default function Offers() {
               <Col xs={8} className="ms-5 ps-3 secoundRowText ">
                 <p className=" text-wrap ">
                   {' '}
-                  You can ask and consult an internist about corona symptoms
-                  through a free call, sponsored by the Ministry of Health and
-                  Population, from 8 am to 12 am.
+                  {t('offerscoronabody')}
                   {/* <div className="mt-5"  ><hr/></div> */}
                 </p>
               </Col>
@@ -120,7 +154,8 @@ export default function Offers() {
             <Row>
               <Col lg={1}></Col>
               <Col lg={8} className="ms-5 ps-4  thirdText mt-2 mb-5">
-                Choose from top offers
+                {t('offerschoose')}
+
               </Col>
             </Row>
             {/* ///////////////silder display1 ////////*/}

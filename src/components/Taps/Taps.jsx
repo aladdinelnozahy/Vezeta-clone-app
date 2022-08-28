@@ -1,10 +1,4 @@
-// import * as React from 'react';
-// import Button from '@mui/material/Button';
 
-// const App3 = () => {
-//   return <Button variant="contained">Hello World</Button>;
-// }
-// export default App3;
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -17,15 +11,36 @@ import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
-import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-// import Autocomplete from '@mui/material/Autocomplete';
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
+import { useTranslation } from "react-i18next";
+import i18next, { t } from 'i18next';
+import { useEffect } from 'react';
 
+const languages=[
+  {
+    code:'ar',
+    name: 'العربية',
+    country_code:'sa',
+    dir:"rtl"
+  },
+  {
+    code:'en',
+    name: 'English',
+    country_code:'gb'
+  }
+  
+
+]
 export function TabPanel(props) {
+  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
+  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
+  const { t } = useTranslation()
+
+  useEffect(()=>{
+    console.log(currentLanguage)
+    document.body.dir= currentLanguage.dir||'ltr'
+  },[currentLanguage, t])
+
   const { children, value, index, ...other } = props;
 
   return (
@@ -113,10 +128,12 @@ export function App4() {
                 </svg>
               }
               iconPosition="start"
-              label={`Book a doctor `}
+              label={t('bookdocheader')}
+
               sx={{ minWidth: '50%', fontWeight: 'bold' }}
               {...a11yProps(0)}
             />
+{/* {t('bookdocheader')} */}
 
             <Tab
               className="justify item center mt-2 "
@@ -133,118 +150,25 @@ export function App4() {
                 </svg>
               }
               iconPosition="start"
-              label="Telehealth call with doctor"
+              label={t('telehealthheader')}
+
               sx={{ minWidth: '50%', fontWeight: 'bold' }}
               {...a11yProps(1)}
             />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          {/* tabs1 Dropdown */}
           <div>
             <span>
-              {/* <FormControl sx={{ minWidth: '20%' }}> */}
-              {/* <InputLabel
-                  id="demo-controlled-open-select-label"
-                  style={{ color: '#0070cd' }}
-                >
-                  Choose specialty
-                </InputLabel>
-                <Select
-                  labelId="demo-controlled-open-select-label"
-                  id="demo-controlled-open-select"
-                  open={open}
-                  onClose={handleClose}
-                  onOpen={handleOpen}
-                  value={age}
-                  label="Choose specialty"
-                  onChange={handleChange2}
-                >
-                  <MenuItem value="">
-                    <em>Choose specialty</em>
-                  </MenuItem>
-                  <MenuItem value={10}>ffff</MenuItem>
-                  <MenuItem value={20}>sssss</MenuItem>
-                  <MenuItem value={30}>kkkkk</MenuItem>
-                </Select>
-              </FormControl>
-            </span>
-            <span>
-              <FormControl sx={{ minWidth: '20%' }}>
-                <InputLabel
-                  id="demo-controlled-open-select-label"
-                  style={{ color: '#0070cd' }}
-                >
-                  Choose city
-                </InputLabel>
-                <Select
-                  labelId="demo-controlled-open-select-label"
-                  id="demo-controlled-open-select"
-                  open={open}
-                  onClose={handleClose}
-                  onOpen={handleOpen}
-                  value={age}
-                  label="Choose city"
-                  onChange={handleChange2}
-                >
-                  <MenuItem value="">
-                    <em>Choose city</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-            </span>
-            <span>
-              <FormControl sx={{ minWidth: '20%' }}>
-                <InputLabel
-                  id="demo-controlled-open-select-label"
-                  style={{ color: '#0070cd' }}
-                >
-                  Choose area
-                </InputLabel>
-                <Select
-                  labelId="demo-controlled-open-select-label"
-                  id="demo-controlled-open-select"
-                  open={open}
-                  onClose={handleClose}
-                  onOpen={handleOpen}
-                  value={age}
-                  icon={<FavoriteIcon />}
-                  iconPosition="start"
-                  label="Choose area"
-                  onChange={handleChange2}
-                >
-                  <MenuItem value="">
-                    <em>Choose area</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <TextField
-                id="outlined-name"
-                label="Doctor namr or hospital"
-                //   value={name}
-                onChange={handleChange}
-              /> */}
-
-
-
               <div className="d-grid gap-2">
                 <Button href="/all-doctors" variant="primary" className='bg-danger rounded p-2 text-light' size="lg">
                   <span>
                     <SearchIcon />
                   </span>
-                  Search Doctors
+                  {t('searchdocbutton')}
                 </Button>
 
               </div>
-
-
-
 
             </span>
           </div>

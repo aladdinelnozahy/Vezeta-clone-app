@@ -5,16 +5,17 @@ import Card from 'react-bootstrap/Card';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './CategoryDoctors.css';
+import { t } from 'i18next';
 export default function CategoryDoctors() {
   const names = [
-    'Skin',
-    'Teeth',
-    'Mental, Emotional ',
-    'Child',
-    ' Brain & Nerves  ',
-    'Bones',
-    'Gynaecology and Infertility',
-    'VEar, Nose and Throat',
+    t('speskin'),
+    t('speteeth'),
+    t('speemotions'),
+    t('spechild'),
+    t('spebrain'),
+    t('spebone'),
+    t('speinfert'),
+    t('speearnose'),
   ];
   const images = [
     'Images/specialtie1.jpg',
@@ -60,7 +61,7 @@ export default function CategoryDoctors() {
         <Row className="firstRowText p-0 m-0 pt-4 pb-2">
           <Col lg={1}></Col>
           <Col lg={8} className="ms-5 ps-3">
-            &nbsp; Book from top specialties
+            &nbsp;      {t('specialistbook')}
           </Col>
         </Row>
         <Row className="thirdRow m-0 p-0 mb-5  ">

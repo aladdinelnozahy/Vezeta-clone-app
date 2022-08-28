@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './AllDoctors_Results.css';
 import Item from '../../components/Item/Item';
+import { t } from 'i18next';
 export default function AllDoctors_Results(props) {
   // state for sorting elements
   const [sortItems, setSortItems] = useState([
@@ -53,7 +54,8 @@ export default function AllDoctors_Results(props) {
         <div className="data  d-flex flex-wrap justify-content-between align-items-center px-md-3 my-3">
           <div className="data--info d-flex justify-content-center align-content-center  d-block order-1 order-md-0">
             <p className="text-dark-silver fs-19 fw-bold my-0 d-none d-md-block">
-              All Specialities
+              {t('docspecialise')}
+
             </p>
             <p className="text-grey fs-14 lh-xlg  my-0">
               &nbsp;<span>{generalData.totalDoctors}</span>&nbsp;Doctors
@@ -66,7 +68,10 @@ export default function AllDoctors_Results(props) {
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
-              <i className="fa-solid fa-filter"></i> Filter
+              <i className="fa-solid fa-filter"></i> 
+              Filter
+              {/* {t('filterhead')} */}
+
             </button>
 
             <div

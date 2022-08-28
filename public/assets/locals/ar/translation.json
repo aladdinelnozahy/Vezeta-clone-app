@@ -1,0 +1,85 @@
+{
+    "signup": "انضم الان",
+    "login":"دخول",
+    "vezeta_doctor":"فيزيتا للاطباء ",
+    "contactus":"اتصل بنا",
+    
+    "footer_aboutus":"من نحن",
+    "footer_ourteam":"فريق فيزيتا",
+    "footer_carrers":"وظائف",
+    "footer_press":"الصحافة",
+    "footer_searchby":"ابحث عن طريق",
+    "footer_speciality":"التخصص",
+    "footer_area":"المنطقة",
+    "footer_insurance":"التامين",
+    "footer_hospital":"المستشفي",
+    "footer_center":"المركز",
+    "footer_areyoudoctor":"هل انت طبيب؟",
+    "footer_joinvezeeta":"انضم الي اطباء فيزيتا",
+    "footer_needhelp":"تحتاج مساعدة؟",
+    "footer_contact":"اتصل بنا",
+    "footer_terms":"شروط الاستخدام",
+    "footer_policy":"اتفاقية الخصوصية",
+    "footer_docprivacy":"اتفاقية الخصوصية للاطباء",
+    "footer_downloadonthe":"Download on the",
+    "footer_appstore":" App Store",
+    "footer_googleplay":"Google Play",
+
+
+    "sliderheader":"رعاية صحية لحياة أفضل ليك",
+    "bookonlineheader":"احجز أونلاين أو كلم ",
+
+    "bookdocheader":"احجز دكتور",
+    "telehealthheader":"مكالمة الدكتور",
+    "searchdocbutton":"بحث الدكتور",
+
+    "serviceheader":"حلول جديدة لرعاية أفضل ليك",
+    "pharmacycardhead":"صيدلية",
+    "pahrmacybody":"Gاطلب ادويتك و كل اللي تحتاجة من الصيدلية",
+    "placeorderbutton":"اطلب الان",
+    "Teleconsultationhead":"مكالمة دكتور",
+    "Teleconsultationbody":"للمتابعة عبر مكالمة صوتية او فيديو",
+    "bookacall":"احجز الان",
+    "bookavisit":"احجز زيارة",
+    "homevisit":"زيارة منزلية",
+    "choosespeciality":"اختار التخصص و الدكتور هيجيلك البيت",
+
+    
+    "offerscorona":"عندك اعراض كورونا ؟",
+    "offerscoronabody":"تقدر تسأل و تستفسر  عن فيروس كورونا بمكالمة مجانية مع دكتور باطنة برعاية وزارة الصحة و السكان من الساعة 8 ص ل 12 صز",
+    "offerschoose":"اختار من احسن العروض",
+
+    "offersteeth":"تنظيف الاسنان",
+    "offersfacial":"تنظيف البشرة ",
+    "offersmetalbra":"تركيب التقويم المعدني",
+    "offersface":"تقشير الوجه",
+    "offershair":"فيتامين-د",
+    "offersvitamin":"ازالة الشعر بالليزر",
+    "offersweight":"انقاص الوزن",
+    "offersvission":"تصحيح النظر",
+
+    "specialistbook":"احجز كشف حسب التخصص",
+    "speskin":"جلدية",
+    "speteeth":"اسنان",
+    "speemotions":"نفسي",
+    "spechild":"اطفال و حديثي الولادة",
+    "spebrain":"مخ و اعصاب",
+    "spebone":"عظام",
+    "speinfert":"نساء و توليد ",
+    "speearnose":"انف و اذن و حنجرة",
+
+    "healthcarehead":"كل احتياجاتك على فيزيتا",
+    "helthcarebody":"ابحث و احجز كشف مع دكتور في عيادة، مستشفى، زيارة منزلية، أو عبر مكالمة. ممكن كمان تطلب أدوية، أو تحجز خدمة أو عملية بأحسن سعر.",
+    "verfiedhead":"تقييمات حقيقية من المرضى",
+    "verfiedbody":"تقييمات الدكاترة من مرضى حجزوا على فيزيتا و زاروا الدكتور بالفعل.",
+    "bookingconfirmhead":"حجزك مؤكد مع الدكتور",
+    "bookingconfirmbody":"حجزك مؤكد بمجرد اختيارك من المواعيد المتاحة للدكتور.",
+    "bookfreehead":"احجز مجاناً، و ادفع في العيادة",
+    "bookfreebody":"سعر الكشف على فيزيتا نفس سعر الكشف في العيادة، بدون أي مصاريف إضافية.",
+
+    "downloadhead":"حمّل تطبيق فيزيتا",
+    "downloadbody":"ابحث ، قارن واحجز استشارات طبية بسهولة مع اكبر شبكة دكاترة فى مصر اطلب أدويتك وهتوصلك خلال 60 دقيقة تتبع خطواتك اليومية واكسب النقاط عند تحقيق الهدف اليومي."
+
+
+
+}

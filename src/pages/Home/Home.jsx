@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
 import { MdCall } from 'react-icons/md';
 import { App4, TabPanel } from '../../components/Taps/Taps';
-import { Footer } from '../../components';
+
+import { useTranslation } from "react-i18next";
+import i18next from 'i18next';
 // import Row from "react-bootstrap/Row";
 import {
   Offers,
@@ -20,7 +22,32 @@ import images from '../../constants/images';
 // import ContainerCatdoc from '../categorydoctors/catDoctores';
 // import Mediadownloud from '../downloudside/downloud';
 
+
+
+const languages=[
+  {
+    code:'ar',
+    name: 'العربية',
+    country_code:'sa',
+    dir:"rtl"
+  },
+  {
+    code:'en',
+    name: 'English',
+    country_code:'gb'
+  }
+  
+
+]
 export default function Home() {
+  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
+  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
+  const { t } = useTranslation()
+
+  useEffect(()=>{
+    console.log(currentLanguage)
+    document.body.dir= currentLanguage.dir||'ltr'
+  },[currentLanguage, t])
   return (
     <>
       <Container fluid className="parentImgSlider px-0">
@@ -62,17 +89,16 @@ export default function Home() {
         </Carousel>
         <div className="box carousel-caption d-lg-block d-none  ">
           <h2 className="d-flex align-items-start" style={{ color: '#48545c' }}>
-            Better Healthcare for a Better Life
-          </h2>
+          {t('sliderheader')}          </h2>
           <h4 className="d-flex align-items-start" style={{ color: '#6f7072' }}>
-            Book online or&nbsp;
+          {t('bookonlineheader')}
+            &nbsp;
             <span style={{ color: 'red' }}>
               <MdCall />
             </span>
             &nbsp;16676
           </h4>
           <TabPanel />
-          {/* <div  className='boxSearch'><TabPanel/></div> */}
         </div>
         <div className="boxSearch d-lg-flex justify-content-center d-none ">
           <App4 />

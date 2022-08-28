@@ -10,9 +10,48 @@ import Links from '../../components/Footer/links'
 import { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import CountrySelect from '../../components/UserProfile/countryDropDown';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 
+
+
+
+
+
+
+    const [emil, setEmail] = useState('');
+    const [pass, setPassword] = useState('');
+    const [Id, setId] = useState('');
+    const [userToken, setuserToken] = useState('');
+    const history=useHistory();
+
+
+
+    function submitData(e) {
+        e.preventDefault()
+        let x = { userEmail: emil, userPassword: pass }
+        console.log(x)
+        axios.post('http://localhost:3000/user-login', x).then(function (response) {
+            // console.log(response.headers);
+            // console.log(response.data.body._id);
+            // console.log(response.headers['user-token']);
+            // setId(response.data.body._id)
+            // setuserToken(response.headers['user-token'])
+            localStorage.setItem('itemsId', JSON.stringify(response.data.body._id));
+            localStorage.setItem('itemsToken', JSON.stringify(response.headers['user-token']));
+            if(response.status == 200){
+                history.push("/UserProfile");
+        }
+        },
+        )
+    }
+
+
+
+    // const [userPassword, setPassword] = useState('');
+    // const [userEmail, setEmail] = useState('');
 
     return (
         <>
@@ -24,15 +63,20 @@ const Login = () => {
                     </ListGroup.Item>
 
                     <ListGroup.Item >
-                        <Form>
+                        <Form onSubmit={(e) => submitData(e)}>
                             <Form.Group
                             >
                                 <Form.Label column className="mx-4" >
-                                    Mobile or Email
+                                    Email
                                 </Form.Label>
                                 <Col className=" mx-2" >
-
-                                    <CountrySelect />
+                                    <Form.Control
+                                        type="email"
+                                        placeholder={"email"}
+                                        name='userEmail'
+                                        required
+                                        onChange={e => setEmail(e.target.value)}
+                                    />
                                 </Col>
                                 {/* <small className="text-danger">{err.errorPassword}</small> */}
                                 {/* </Row> */}
@@ -45,10 +89,12 @@ const Login = () => {
                                     Password
                                 </Form.Label>
                                 <Col className="mx-2">
+
                                     <Form.Control
+                                        onChange={e => setPassword(e.target.value)}
                                         type="password"
-                                        placeholder="Password"
-                                        name="confirmation"
+                                        placeholder={"password"}
+                                        name='userPassword'
                                         required
                                     />
 
@@ -57,7 +103,15 @@ const Login = () => {
 
                                 <Col className="text-center ">
                                     <div className="d-grid gap-2 p-2">
-                                        <Button href="/Home" variant="danger" className=' rounded-2' size="sm">
+
+
+                                        <Button 
+                                        type='submit' 
+                                        variant="danger" 
+                                        className=' rounded-2' 
+                                        size="sm"
+                                        
+                                        >
                                             Login
                                         </Button>
 
@@ -65,45 +119,16 @@ const Login = () => {
 
 
                                 </Col>
-                                <Row className='p-2'>
-                                    <Col>
-                                        <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
-                                            <Col sm={{ span: 10, offset: 2 }}>
-                                                <Form.Check label="Remember me" />
-                                            </Col>
 
-                                        </Form.Group>
-
-                                    </Col>
-                                    <Col>
-                                        <a className="forgetpass" href="https://www.vezeeta.com/en/Account/ForgotPassword" name="Forget Password?">Forget Password?</a>
-                                    </Col>
-
-                                </Row>
-                                {/* <div className='containeer'>
-                                    <div className='lines'>
-                                        <div className='line'>
-                                            <div className='circle'>
-                                                <p className='text-center m-auto'>or</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='container px-5'>
-                                    <a href="#" className="fb btnn">
-                                        <i className="fa fa-facebook fa-fw"></i> Login with Facebook
-                                    </a>
-
-                                </div> */}
                                 <div className='container'>
-                                <Row className='mx-2'>
-                                    <Col >
-                                    <p>New User? </p>
-                                    </Col>
-                                    <Col >
-                                    <a  href="https://www.vezeeta.com/en/Account/SignUp">Sign up</a>
-                                    </Col>
-                                </Row>
+                                    <Row className='mx-2'>
+                                        <Col >
+                                            <p>New User? </p>
+                                        </Col>
+                                        <Col >
+                                            <a href="/Register">Sign up</a>
+                                        </Col>
+                                    </Row>
 
                                 </div>
                             </Form.Group>

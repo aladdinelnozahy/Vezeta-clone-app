@@ -10,10 +10,37 @@ import Typography from '@mui/material/Typography';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useEffect } from 'react';
+import { useTranslation } from "react-i18next";
+
 export default function Pharmacy() {
   // const theme = useTheme();
+  const languages=[
+    {
+      code:'ar',
+      name: 'العربية',
+      country_code:'sa',
+      dir:"rtl"
+    },
+    {
+      code:'en',
+      name: 'English',
+      country_code:'gb'
+    }
+    
+  
+  ]
+  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
+  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
+  const { t } = useTranslation()
+
+  useEffect(()=>{
+    console.log(currentLanguage)
+    document.body.dir= currentLanguage.dir||'ltr'
+  },[currentLanguage, t])
 
   return (
+    
     <>
       <Row className="containerSize m-0 p-0">
         <Row>
@@ -21,7 +48,7 @@ export default function Pharmacy() {
           <Col lg={10}>
             {/* ///////////fristTEXT////////////// */}
             <Row className="firstPharmacyRow ">
-              New services for better healthcare
+            {t('serviceheader')}
             </Row>
             {/* ///////////////////////// */}
             {/* ///////////secondPharmacy////////////// */}
@@ -29,18 +56,18 @@ export default function Pharmacy() {
             <Row className="secondPharmacyRow d-flex justify-content-center mb-4">
               <Row>
                 <Col lg={8} className="pt-4 pb-2 ps-4 fs-4 fw-bold">
-                  Pharmacy{' '}
+                {t('pharmacycardhead')}{' '}
                 </Col>
               </Row>
               <Row>
                 <Col lg={8} className=" pb-3  ps-4">
-                  Get your medicine and all your pharmacy needs{' '}
+                {t('pahrmacybody')}
                 </Col>
               </Row>
               <Row>
                 <Col lg={8} className="pb-4  ps-4">
                   <button className="btn btn-light text-primary fs-6 fw-bold btn-lg">
-                    Place holder
+                  {t('placeorderbutton')}
                   </button>{' '}
                 </Col>
               </Row>
@@ -67,7 +94,7 @@ export default function Pharmacy() {
                           variant="h6"
                           className="cardCol2 fw-bold"
                         >
-                          Teleconsultation{' '}
+                  {t('Teleconsultationhead')}{' '}
                         </Typography>
                         <Typography
                           variant="subtitle1"
@@ -75,8 +102,8 @@ export default function Pharmacy() {
                           component="div"
                           style={{ fontSize: '15px' }}
                         >
-                          Teleconsultation Schedule a voice or video call with a
-                          specialized doctor{' '}
+                          
+                  {t('Teleconsultationbody')}{' '}
                         </Typography>
                       </CardContent>
                       <Box
@@ -100,8 +127,8 @@ export default function Pharmacy() {
                                 textDecoration: 'none',
                               }}
                             >
-                              Book a call
-                            </a>{' '}
+                  {t('bookacall')}                            
+                  </a>{' '}
                             <PlayArrowIcon
                               sx={{ height: 20, width: 25, color: 'red' }}
                             />
@@ -131,7 +158,7 @@ export default function Pharmacy() {
                           variant="h6"
                           className="cardCol2 fw-bold"
                         >
-                          Home Visit{' '}
+                          {t('homevisit')}{' '}
                         </Typography>
                         <Typography
                           style={{ fontSize: '15px' }}
@@ -139,8 +166,8 @@ export default function Pharmacy() {
                           color="text.secondary"
                           component="div"
                         >
-                          Choose the specialty, and the doctor will visit you at
-                          home.{' '}
+                          {t('choosespeciality')}
+                          {' '}
                         </Typography>
                       </CardContent>
                       <Box
@@ -164,7 +191,7 @@ export default function Pharmacy() {
                                 textDecoration: 'none',
                               }}
                             >
-                              Book a visit
+                             {t('bookavisit')}
                             </a>{' '}
                             <PlayArrowIcon
                               sx={{ height: 20, width: 25, color: 'red' }}

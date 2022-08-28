@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Footer.css';
-// import { CDBFooter, CDBBox } from 'cdbreact';
-
 import Links from './links';
+
+import { useTranslation } from "react-i18next";
+import i18next from 'i18next';
+
+const languages=[
+  {
+    code:'ar',
+    name: 'العربية',
+    country_code:'sa',
+    dir:"rtl"
+  },
+  {
+    code:'en',
+    name: 'English',
+    country_code:'gb'
+  }
+  
+
+]
 const Footer = () => {
+  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
+  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
+  const { t } = useTranslation()
+
+  useEffect(()=>{
+    console.log(currentLanguage)
+    document.body.dir= currentLanguage.dir||'ltr'
+  },[currentLanguage, t])
   return (
     <footer className="footer">
       <div className="container-fluid px-lg-5">
@@ -12,180 +37,86 @@ const Footer = () => {
             <div className="row">
               <div className="col-md-3 mb-md-0 mb-4">
                 <img className='logo' src={require('../Images/whitelogowithdotcom.jpg')} alt='logo' />
-                <Links link="https://www.vezeeta.com/en/Generic/AboutUs" name="About Us" />
-                <Links link="https://www.vezeeta.com/en/Generic/OurTeam" name="Our Team" />
-                <Links link="https://careers.vezeeta.com/" name="Careers" />
-                <Links link="https://www.vezeeta.com/en/Generic/News" name="Press" />
+                <Links link="https://www.vezeeta.com/en/Generic/AboutUs" name={t('footer_aboutus')} />
+                <Links link="https://www.vezeeta.com/en/Generic/OurTeam" name={t('footer_ourteam')} />
+                <Links link="https://careers.vezeeta.com/" name={t('footer_carrers')} />
+                <Links link="https://www.vezeeta.com/en/Generic/News" name={t('footer_press')} />
 
               </div>
               <div className="col-md-12 col-lg-9">
                 <div className="row">
                   <div className="col-md-3 mb-md-0 mb-4">
                     <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-                      Search By
-                    </p>											
+                    {t('footer_searchby')} 
+                                        </p>											
                     <ul className="list-unstyled">
-                      <Links link="https://www.vezeeta.com/en/specialties" name="Speciality" />
-                      <Links link="https://www.vezeeta.com/en/areas" name="Area" />
-                      <Links link="https://www.vezeeta.com/en/insurances" name="Insurance" />
-                      <Links link="https://www.vezeeta.com/en/hospitals" name="Hospital" />
-                      <Links link="https://www.vezeeta.com/en/clinics" name="Center" />
+                      <Links link="https://www.vezeeta.com/en/specialties" name={t('footer_speciality')}  />
+                      <Links link="https://www.vezeeta.com/en/areas" name={t('footer_area')} />
+                      <Links link="https://www.vezeeta.com/en/insurances" name={t('footer_insurance')} />
+                      <Links link="https://www.vezeeta.com/en/hospitals" name={t('footer_hospital')} />
+                      <Links link="https://www.vezeeta.com/en/clinics" name={t('footer_center')} />
                     </ul>
                   </div>
                   <div className="col-md-3 mb-md-0 mb-4">
                     <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-                      Are You A Doctor ?
+                    {t('footer_areyoudoctor')}
                     </p>
                     <ul className="list-unstyled">
-                      <Links link="https://doctors.vezeeta.com/" name="Join Vezeeta Doctors" />
+                      <Links link="https://doctors.vezeeta.com/" name={t('footer_joinvezeeta')} />
                     </ul>
                   </div>
                   <div className="col-md-3 mb-md-0 mb-4">
                     <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-                      Need Help?
+                    {t('footer_needhelp')}
                     </p>
                     <ul className="list-unstyled">
-                      <Links link="https://www.vezeeta.com/en/Generic/ContactUs" name="Contact Us" />
-                      <Links link="https://www.vezeeta.com/en/termsofuse" name="Terms Of Use" />
-                      <Links link="https://www.vezeeta.com/en/Generic/PrivacyPolicy" name="Privacy Policy" />
-                      <Links link="https://www.vezeeta.com/en/Generic/DoctorsPrivacyPolicy" name="Doctors Privacy Policy" />
+                      <Links link="https://www.vezeeta.com/en/Generic/ContactUs" name={t('footer_contact')} />
+                      <Links link="https://www.vezeeta.com/en/termsofuse" name={t('footer_terms')} />
+                      <Links link="https://www.vezeeta.com/en/Generic/PrivacyPolicy" name={t('footer_policy')} />
+                      <Links link="https://www.vezeeta.com/en/Generic/DoctorsPrivacyPolicy" name={t('footer_docprivacy')} />
                     </ul>
                   </div>
                   <div className="col-md-3">
                     <div className='col-12'>
                       <div className="container p-2">
-
                         <a href="https://www.kobinet.com.tr/" target="_blank" className="market-btn google-btn" role="button">
-                          <span className="market-button-subtitle">Download on the</span>
-                          <span className="market-button-title">Google Play</span>
+                          <span className="market-button-subtitle">{t('footer_downloadonthe')}</span>
+                          <span className="market-button-title">{t('footer_googleplay')}</span>
                         </a>
                       </div>
                       <div className="container p-2 ">
                         <a href="https://www.kobinet.com.tr/" target="_blank" className="market-btn apple-btn" role="button">
-                          <span className="market-button-subtitle">Download on the</span>
-                          <span className="market-button-title">App Store</span>
+                          <span className="market-button-subtitle">{t('footer_downloadonthe')}</span>
+                          <span className="market-button-title">{t('footer_appstore')}</span>
                         </a>
                       </div>
-
                       <div className=" row col p-2">
                         <div className='col-3 '>
                           <a href="https://www.facebook.com/martydevelopment/" target="_blank">
                             <i className="aaaa fab fa-facebook" tabIndex="0"></i>
                           </a>
                         </div>
-
                         <div className='col-3 '>
                           <a href="https://www.instagram.com/marty.development/" target="_blank">
                             <i className="aaaa fab fa-instagram" tabIndex="0"></i>
                           </a>
                         </div>
-
                         <div className='col-3 '>
                           <a href="#">
                             <i className="aaaa fab fa-twitter" tabIndex="0" target="_blank"></i>
                           </a>
                         </div>
-
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
-
-
-
-
-
           </div>
 
         </div>
       </div>
     </footer>
-    //     <div className='footer  '>
-    // aaa
-    //       <CDBFooter className="">
-
-    //         <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
-    //           <CDBBox display="flex" justifyContent="between" className="flex-wrap">
-    //             <CDBBox>
-    //               <img className='logo' src={require('../Images/whitelogowithdotcom.jpg')} alt='logo' />
-    //               <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0', color: 'white' }}>
-    //                 <Links link="https://www.vezeeta.com/en/Generic/AboutUs" name="About Us" />
-    //                 <Links link="https://www.vezeeta.com/en/Generic/OurTeam" name="Our Team" />
-    //                 <Links link="https://careers.vezeeta.com/" name="Careers" />
-    //                 <Links link="https://www.vezeeta.com/en/Generic/News" name="Press" />
-
-    //               </CDBBox>
-    //             </CDBBox>
-
-    //             <CDBBox>
-    //               <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-    //                 Search By
-    //               </p>
-    //               <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-    //                 <Links link="https://www.vezeeta.com/en/specialties" name="Speciality" />
-    //                 <Links link="https://www.vezeeta.com/en/areas" name="Area" />
-    //                 <Links link="https://www.vezeeta.com/en/insurances" name="Insurance" />
-    //                 <Links link="https://www.vezeeta.com/en/hospitals" name="Hospital" />
-    //                 <Links link="https://www.vezeeta.com/en/clinics" name="Center" />
-    //               </CDBBox>
-    //             </CDBBox>
-    //             <CDBBox>
-    //               <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-    //                 Are You A Doctor ?
-    //               </p>
-    //               <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-    //                 <Links link="https://doctors.vezeeta.com/" name="Join Vezeeta Doctors" />
-
-    //               </CDBBox>
-    //             </CDBBox>
-    //             <CDBBox>
-    //               <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-    //                 Need Help?
-    //               </p>
-    //               <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-    //                 <Links link="https://www.vezeeta.com/en/Generic/ContactUs" name="Contact Us" />
-    //                 <Links link="https://www.vezeeta.com/en/termsofuse" name="Terms Of Use" />
-    //                 <Links link="https://www.vezeeta.com/en/Generic/PrivacyPolicy" name="Privacy Policy" />
-    //                 <Links link="https://www.vezeeta.com/en/Generic/DoctorsPrivacyPolicy" name="Doctors Privacy Policy" />
-    //               </CDBBox>
-    //             </CDBBox>
-    //             <CDBBox>
-    //               <div className="container downbtn">
-
-    //                 <a href="https://www.kobinet.com.tr/" target="_blank" className="market-btn google-btn" role="button">
-    //                   <span className="market-button-subtitle">Download on the</span>
-    //                   <span className="market-button-title">Google Play</span>
-    //                 </a>
-    //               </div>
-    //               <div className="container downbtn">
-    //                 <a href="https://www.kobinet.com.tr/" target="_blank" className="market-btn apple-btn" role="button">
-    //                   <span className="market-button-subtitle">Download on the</span>
-    //                   <span className="market-button-title">App Store</span>
-    //                 </a>
-    //               </div>
-
-    //               <div className="container downbtn">
-    //                 <a href="https://www.facebook.com/martydevelopment/" target="_blank">
-    //                   <i className="fab fa-facebook" tabIndex="0"></i>
-    //                 </a>
-    //                 <a href="https://www.instagram.com/marty.development/" target="_blank">
-    //                   <i className="fab fa-instagram" tabIndex="0"></i>
-    //                 </a>
-    //                 <a href="#">
-    //                   <i className="fab fa-twitter" tabIndex="0" target="_blank"></i>
-    //                 </a>
-    //               </div>
-    //             </CDBBox>
-
-    //           </CDBBox>
-    //         </CDBBox>
-    //       </CDBFooter>
-    //     </div>
-
-
   );
 
 }
