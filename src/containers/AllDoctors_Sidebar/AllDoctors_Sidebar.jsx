@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FilterContext } from '../../contexts/AllDoctors_Filter';
 import './AllDoctors_Sidebar.css';
 export default function AllDoctors_Sidebar() {
@@ -12,6 +12,7 @@ export default function AllDoctors_Sidebar() {
     setAvailability,
     title,
     setTitle,
+    filter,
   } = useContext(FilterContext);
   const [filterQuery, setFilterQuery] = useState([]);
 
@@ -55,6 +56,10 @@ export default function AllDoctors_Sidebar() {
       setGender(newGender);
     }
   };
+
+  useEffect(() => {
+    console.log('render filter', filter);
+  }, [filter]);
   return (
     <>
       <div className="col-12 col-lg-2 rounded-4  d-none d-lg-block">

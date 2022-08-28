@@ -1,0 +1,38 @@
+.text-normal-anchor {
+  color: var(--color-normal-anchor) !important;
+}
+
+.text-grey {
+  color: var(--color-grey) !important;
+}
+
+.fs-12 {
+  font-size: 5px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+*:focus {
+  outline: 0 !important;
+}
+
+.p-trunc {
+  max-width: 20px;
+}

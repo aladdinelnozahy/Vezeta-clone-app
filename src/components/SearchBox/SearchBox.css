@@ -1,0 +1,11 @@
+.text-normal-anchor {
+  color: var(--color-normal-anchor) !important;
+}
+
+.text-grey {
+  color: var(--color-grey) !important;
+}
+
+.fs-12 {
+  font-size: 12px;
+}

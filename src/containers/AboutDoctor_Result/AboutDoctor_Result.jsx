@@ -14,14 +14,14 @@ export default function AboutDoctor_Result(props) {
   };
   return (
     <>
-      <div className=" col-12 col-xl-7  order-0">
+      <div className=" rounded-4 bg-light p-3 mb-3">
         {/* using props to call params object */}
         {/* <p>{props.match.params.id}</p> */}
         <p>let {params.id}</p>
-        <div className=" col-12 order-lg-0 d-flex ms-auto me-auto flex-column flex-md-row flex-wrap justify-content-between align-content-center">
+        <div className=" col-12 d-flex ms-auto me-auto flex-column flex-md-row flex-wrap justify-content-between align-content-center">
           <div className=" col-12 col-md-3 text-center mt-4 mb-5 mb-xl-0 mt-md-0 square-150">
             <img
-              src={images.doctor01}
+              src={images.d01}
               className=" rounded-circle img-fluid"
               alt=""
               width="150"

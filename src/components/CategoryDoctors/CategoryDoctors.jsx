@@ -53,126 +53,176 @@ export default function CategoryDoctors() {
     }
   }
   return (
-    <Row className="mainContainerCat m-0 p-0">
-      <Row></Row>
-      <Col lg={12} className="p-0">
-        {' '}
-        <Row className="firstRowText p-0 m-0 pt-4 pb-2">
-          <Col lg={1}></Col>
-          <Col lg={8} className="ms-5 ps-3">
-            &nbsp; Book from top specialties
+    <>
+      <div className="rounded-4 bg-light p-2">
+        <Row className="mainContainerCat m-0 p-0">
+          <Row></Row>
+          <Col lg={12} className="p-0">
+            {' '}
+            <Row className="firstRowText p-0 m-0 pt-4 pb-2">
+              <Col lg={1}></Col>
+              <Col lg={8} className="ms-5 ps-3">
+                &nbsp; Book from top specialties
+              </Col>
+            </Row>
+            <Row className="thirdRow m-0 p-0 mb-5  ">
+              {/* ///////////////silder display1 ////////*/}
+
+              <Row className="p-0 m-0 d-lg-flex justify-content-center  d-flex align-items-center d-none">
+                <div
+                  className="p-0 me-2"
+                  style={{ width: '3%', hight: '3%', fontSize: '.1rem' }}
+                >
+                  <div className="p-0">
+                    <div>
+                      <button
+                        onClick={handleChange2}
+                        className="btn btn-light "
+                      >
+                        <ArrowBackIosNewIcon sx={{ height: 11, width: 11 }} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <Card
+                  className="p-0 me-3 instanceCard"
+                  style={{ width: '17%' }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={images[i]}
+                    className="imgBadge"
+                  />
+                  <Card.Body>
+                    <Card.Title className="textcolor">{names[i]}</Card.Title>
+                  </Card.Body>
+                </Card>
+
+                <Card
+                  className="p-0 me-3 instanceCard"
+                  style={{ width: '17%' }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={images[i + 1]}
+                    className="imgBadge"
+                  />
+                  <Card.Body>
+                    <Card.Title className="textcolor">
+                      {names[i + 1]}
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+
+                <Card
+                  className="p-0 me-3 instanceCard "
+                  style={{ width: '17%' }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={images[i + 2]}
+                    className="imgBadge"
+                  />
+                  <Card.Body>
+                    <Card.Title className="textcolor">
+                      {names[i + 2]}
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+                <Card
+                  className="p-0 me-3 instanceCard"
+                  style={{ width: '17%' }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={images[i + 3]}
+                    className="imgBadge"
+                  />
+                  <Card.Body>
+                    <Card.Title className="textcolor">
+                      {names[i + 3]}
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+                <div className="p-0 me-3" style={{ width: '3%', hight: '3%' }}>
+                  <div className="p-0">
+                    <div>
+                      <button
+                        onClick={handleChange1}
+                        className="btn btn-light "
+                      >
+                        <ArrowForwardIosIcon sx={{ height: 11, width: 11 }} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Row>
+              {/* ///////////////silder display2 ////////*/}
+              <Row className="p-0 m-0 d-lg-none justify-content-center  d-flex align-items-center d-felx">
+                <div
+                  className="p-0 me-4"
+                  style={{ width: '3%', hight: '3%', fontSize: '.1rem' }}
+                >
+                  <div className="p-0">
+                    <div>
+                      <button
+                        onClick={handleChange4}
+                        className="btn btn-light "
+                      >
+                        <ArrowBackIosNewIcon sx={{ height: 11, width: 11 }} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <Card
+                  className="p-0 me-3 instanceCard"
+                  style={{ width: '30%' }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={images[i]}
+                    className="imgBadge"
+                  />
+                  <Card.Body>
+                    <Card.Title className="textcolor">{names[i]}</Card.Title>
+                  </Card.Body>
+                </Card>
+
+                <Card
+                  className="p-0 me-3 instanceCard"
+                  style={{ width: '30%' }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={images[i + 1]}
+                    className="imgBadge"
+                  />
+                  <Card.Body>
+                    <Card.Title className="textcolor">
+                      {names[i + 1]}
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+
+                <div className="p-0 me-3" style={{ width: '3%', hight: '3%' }}>
+                  <div className="p-0">
+                    <div>
+                      <button
+                        onClick={handleChange3}
+                        className="btn btn-light "
+                      >
+                        <ArrowForwardIosIcon sx={{ height: 11, width: 11 }} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Row>
+              {/* //////////////////////////////// */}
+            </Row>
           </Col>
+          {/* <Col lg={1}></Col> */}
         </Row>
-        <Row className="thirdRow m-0 p-0 mb-5  ">
-          {/* ///////////////silder display1 ////////*/}
-
-          <Row className="p-0 m-0 d-lg-flex justify-content-center  d-flex align-items-center d-none">
-            <div
-              className="p-0 me-2"
-              style={{ width: '3%', hight: '3%', fontSize: '.1rem' }}
-            >
-              <div className="p-0">
-                <div>
-                  <button onClick={handleChange2} className="btn btn-light ">
-                    <ArrowBackIosNewIcon sx={{ height: 11, width: 11 }} />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <Card className="p-0 me-3 instanceCard" style={{ width: '17%' }}>
-              <Card.Img variant="top" src={images[i]} className="imgBadge" />
-              <Card.Body>
-                <Card.Title className="textcolor">{names[i]}</Card.Title>
-              </Card.Body>
-            </Card>
-
-            <Card className="p-0 me-3 instanceCard" style={{ width: '17%' }}>
-              <Card.Img
-                variant="top"
-                src={images[i + 1]}
-                className="imgBadge"
-              />
-              <Card.Body>
-                <Card.Title className="textcolor">{names[i + 1]}</Card.Title>
-              </Card.Body>
-            </Card>
-
-            <Card className="p-0 me-3 instanceCard " style={{ width: '17%' }}>
-              <Card.Img
-                variant="top"
-                src={images[i + 2]}
-                className="imgBadge"
-              />
-              <Card.Body>
-                <Card.Title className="textcolor">{names[i + 2]}</Card.Title>
-              </Card.Body>
-            </Card>
-            <Card className="p-0 me-3 instanceCard" style={{ width: '17%' }}>
-              <Card.Img
-                variant="top"
-                src={images[i + 3]}
-                className="imgBadge"
-              />
-              <Card.Body>
-                <Card.Title className="textcolor">{names[i + 3]}</Card.Title>
-              </Card.Body>
-            </Card>
-            <div className="p-0 me-3" style={{ width: '3%', hight: '3%' }}>
-              <div className="p-0">
-                <div>
-                  <button onClick={handleChange1} className="btn btn-light ">
-                    <ArrowForwardIosIcon sx={{ height: 11, width: 11 }} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Row>
-          {/* ///////////////silder display2 ////////*/}
-          <Row className="p-0 m-0 d-lg-none justify-content-center  d-flex align-items-center d-felx">
-            <div
-              className="p-0 me-4"
-              style={{ width: '3%', hight: '3%', fontSize: '.1rem' }}
-            >
-              <div className="p-0">
-                <div>
-                  <button onClick={handleChange4} className="btn btn-light ">
-                    <ArrowBackIosNewIcon sx={{ height: 11, width: 11 }} />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <Card className="p-0 me-3 instanceCard" style={{ width: '30%' }}>
-              <Card.Img variant="top" src={images[i]} className="imgBadge" />
-              <Card.Body>
-                <Card.Title className="textcolor">{names[i]}</Card.Title>
-              </Card.Body>
-            </Card>
-
-            <Card className="p-0 me-3 instanceCard" style={{ width: '30%' }}>
-              <Card.Img
-                variant="top"
-                src={images[i + 1]}
-                className="imgBadge"
-              />
-              <Card.Body>
-                <Card.Title className="textcolor">{names[i + 1]}</Card.Title>
-              </Card.Body>
-            </Card>
-
-            <div className="p-0 me-3" style={{ width: '3%', hight: '3%' }}>
-              <div className="p-0">
-                <div>
-                  <button onClick={handleChange3} className="btn btn-light ">
-                    <ArrowForwardIosIcon sx={{ height: 11, width: 11 }} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Row>
-          {/* //////////////////////////////// */}
-        </Row>
-      </Col>
-      {/* <Col lg={1}></Col> */}
-    </Row>
+      </div>
+    </>
   );
 }

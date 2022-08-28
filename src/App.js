@@ -8,12 +8,14 @@ import SignUp from './pages/SignUp/signup';
 import ChangePass from './components/ChangePass/ChangePass';
 import UserProfile from './components/UserProfile/userprofile';
 import FilterContextProvider from './contexts/AllDoctors_Filter.jsx';
+import HomeFilterContextProvider from './contexts/Home_Filter.jsx';
 
 function App() {
   return (
     <>
       <Router>
         <Navbar_c />
+        {/* <HomeFilterContextProvider> */}
         <FilterContextProvider>
           <Switch>
             <Route path="/" exact component={Home} />
@@ -30,6 +32,7 @@ function App() {
             {/* <Route path="/doctor" exact component={AboutDoctor} /> */}
           </Switch>
         </FilterContextProvider>
+        {/* </HomeFilterContextProvider> */}
         <Footer />
       </Router>
       {/* <Navbar1 />

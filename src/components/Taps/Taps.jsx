@@ -231,21 +231,19 @@ export function App4() {
                 onChange={handleChange}
               /> */}
 
-
-
               <div className="d-grid gap-2">
-                <Button href="/all-doctors" variant="primary" className='bg-danger rounded p-2 text-light' size="lg">
+                <Button
+                  href="/all-doctors"
+                  variant="primary"
+                  className="bg-danger rounded p-2 text-light"
+                  size="lg"
+                >
                   <span>
                     <SearchIcon />
                   </span>
                   Search Doctors
                 </Button>
-
               </div>
-
-
-
-
             </span>
           </div>
           {/* tabs2 */}

@@ -1,0 +1,26 @@
+.text-grey {
+  color: var(--color-grey) !important;
+}
+.text-dark-silver {
+  color: var(--color-dark-silver) !important;
+}
+.border-grey {
+  border-bottom: 1px solid var(--color-grey) !important;
+}
+.text-normal-anchor {
+  color: var(--color-normal-anchor) !important;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+.fs-12 {
+  font-size: 12px !important;
+}
+.fs-10 {
+  font-size: 10px !important;
+}
+
+.fs-21 {
+  font-size: 21px;
+}

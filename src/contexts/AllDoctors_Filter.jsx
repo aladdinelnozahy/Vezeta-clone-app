@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useReducer } from 'react';
 
 export const FilterContext = createContext();
 
@@ -24,6 +24,12 @@ const FilterContextProvider = (props) => {
     { name: 'consultant', value: false },
     { name: 'specialist', value: false },
   ]);
+  const initialHomeSearchState = [
+    { name: 'specialty', value: false },
+    { name: 'city', value: false },
+    { name: 'doctorName', value: false },
+  ];
+  const [homeSearch, setHomeSearch] = useState(initialHomeSearchState);
   const [titleArr, setTitleArr] = useState([]);
   const handleAvailableTitle = () => {
     setTitleArr(title.filter((title) => title['value'] === true));
@@ -35,7 +41,15 @@ const FilterContextProvider = (props) => {
     { name: 'entity', value: [] },
     { name: 'gender', value: [] },
     { name: 'examination', value: '' },
+    { name: 'homeSearch', value: [] },
   ]);
+  //   useEffect for homeSearch
+  useEffect(() => {
+    let truthyValue = homeSearch.filter((hSearch) => hSearch['value'] == true);
+    let newFilter = [...filter]; // copying the old datas array
+    newFilter[5]['value'] = truthyValue; // replace e.target.value with whatever you want to change it to
+    setFilter(newFilter);
+  }, [homeSearch]);
   //   useEffect for title
   useEffect(() => {
     let truthyValue = title.filter((title) => title['value'] == true);
@@ -74,6 +88,8 @@ const FilterContextProvider = (props) => {
   }, [examination]);
 
   useEffect(() => {
+    // setHomeSearch(initialHomeSearchState);
+
     console.log(filter);
   }, [filter]);
 
@@ -90,6 +106,9 @@ const FilterContextProvider = (props) => {
         setAvailability,
         title,
         setTitle,
+        initialHomeSearchState,
+        homeSearch,
+        setHomeSearch,
         filter,
       }}
     >
