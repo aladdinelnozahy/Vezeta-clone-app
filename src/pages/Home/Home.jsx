@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { FilterContext } from '../../contexts/AllDoctors_Filter';
 import './Home.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
@@ -21,6 +22,10 @@ import images from '../../constants/images';
 // import Mediadownloud from '../downloudside/downloud';
 
 export default function Home() {
+  const { filter } = useContext(FilterContext);
+  useEffect(() => {
+    console.log('home filter', filter);
+  }, [filter]);
   return (
     <>
       <div className="container-fluid">

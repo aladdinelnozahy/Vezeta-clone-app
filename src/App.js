@@ -8,14 +8,13 @@ import SignUp from './pages/SignUp/signup';
 import ChangePass from './components/ChangePass/ChangePass';
 import UserProfile from './components/UserProfile/userprofile';
 import FilterContextProvider from './contexts/AllDoctors_Filter.jsx';
-import HomeFilterContextProvider from './contexts/Home_Filter.jsx';
+import AboutDoctorContextProvider from './contexts/AboutDoctor.jsx';
 
 function App() {
   return (
     <>
       <Router>
         <Navbar_c />
-        {/* <HomeFilterContextProvider> */}
         <FilterContextProvider>
           <Switch>
             <Route path="/" exact component={Home} />
@@ -27,12 +26,13 @@ function App() {
 
             <Route exact path="/changepassword" component={ChangePass} />
 
-            <Route path="/all-doctors" exact component={AllDoctors} />
-            <Route path="/doctor/:id" exact component={AboutDoctor} />
+            <AboutDoctorContextProvider>
+              <Route path="/all-doctors" exact component={AllDoctors} />
+              <Route path="/doctor/:id" exact component={AboutDoctor} />
+            </AboutDoctorContextProvider>
             {/* <Route path="/doctor" exact component={AboutDoctor} /> */}
           </Switch>
         </FilterContextProvider>
-        {/* </HomeFilterContextProvider> */}
         <Footer />
       </Router>
       {/* <Navbar1 />

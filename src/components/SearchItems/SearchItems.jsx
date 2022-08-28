@@ -67,9 +67,11 @@ export default function SearchItems() {
   //   useEffect(() => {
   //     setHomeSearch(initialHomeSearchState);
   //   }, []);
-  useEffect(() => {
-    console.log('render filter', filter);
-  }, [filter]);
+
+  /////////////////////////////////////////////////////////
+  // useEffect(() => {
+  //   console.log('render filter', filter);
+  // }, [filter]);
 
   // 👇️ reset to initial state
   //   const resetHomeSearchState = () => {

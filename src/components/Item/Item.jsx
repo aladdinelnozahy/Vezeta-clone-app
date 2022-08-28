@@ -5,6 +5,11 @@ import images from '../../constants/images';
 import { Link } from 'react-router-dom';
 
 export default function Item(props) {
+  const handleRoute = () => {
+    // props.history.push('/doctor');
+    props.history.push(`/doctor/${props.data._id}`);
+  };
+
   const padges = {
     Hygiene: 'fa-hand-sparkles',
     'good listener': 'fa-ear-listen',
@@ -15,7 +20,7 @@ export default function Item(props) {
     <>
       <div
         className="container-fluid my-3  top-rounded bg-light item-hover position-relative"
-        onClick={() => props.handleRoute()}
+        onClick={() => handleRoute()}
       >
         <div className="row">
           <div className="my-5 d-flex flex-column flex-lg-row justify-content-md-center justify-content-lg-center align-content-center">

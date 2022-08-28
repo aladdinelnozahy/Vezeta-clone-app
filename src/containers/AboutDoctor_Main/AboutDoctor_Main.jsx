@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   AboutDoctor_Info,
   Clinic_Gallery,
   Patients_Reviews,
 } from '../../components';
 import { AboutDoctor_Result, AboutDoctor_BookingInfo } from '../../containers';
+// import { AboutDoctorContext } from '../../contexts/AboutDoctor';
 import './AboutDoctor_Main.css';
 
 export default function AboutDoctor_Main() {
+  // const { doctorData, setDoctorData } = useContext(AboutDoctorContext);
   return (
     <>
       <div className="container-fluid">
@@ -17,7 +19,7 @@ export default function AboutDoctor_Main() {
             <AboutDoctor_BookingInfo />
             <AboutDoctor_Info />
             <Clinic_Gallery />
-            <Patients_Reviews />
+            {/* <Patients_Reviews /> */}
           </div>
         </div>
         <div className="row d-none col-xl-10 d-xl-block ms-auto me-auto">
@@ -26,7 +28,7 @@ export default function AboutDoctor_Main() {
               <AboutDoctor_Result />
               <AboutDoctor_Info />
               <Clinic_Gallery />
-              <Patients_Reviews />
+              {/* <Patients_Reviews /> */}
             </div>
             <div className="col-xl-4">
               <AboutDoctor_BookingInfo />

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './Clinic_Gallery.css';
 import images from '../../constants/images';
+import { AboutDoctorContext } from '../../contexts/AboutDoctor';
 
 export default function Clinic_Gallery() {
-  return (
-    <>
+  const { doctorData, setDoctorData } = useContext(AboutDoctorContext);
+  const [renderVariable, setRenderVariable] = useState();
+  const activeVariable = () => {
+    return (
       <div className="info  rounded-4 bg-light py-2 px-4 my-3">
         <div className=" ">
           <p
@@ -20,36 +23,43 @@ export default function Clinic_Gallery() {
           </p>
         </div>
         <div className="mx-5 d-flex justify-content-between align-content-center">
-          <div className=" col-12 col-md-3 text-center my-3 square-150">
-            <img
-              src={images.d01}
-              className="  img-fluid"
-              alt=""
-              width="150"
-              height="150"
-            />
-          </div>
-
-          <div className=" col-12 col-md-3 text-center my-3  square-150">
-            <img
-              src={images.d03}
-              className="  img-fluid"
-              alt=""
-              width="150"
-              height="150"
-            />
-          </div>
-          <div className=" col-12 col-md-3 text-center my-3  square-150">
-            <img
-              src={images.d04}
-              className="  img-fluid"
-              alt=""
-              width="150"
-              height="150"
-            />
-          </div>
+          {doctorData.clinicImagesPath.map((img, index) => {
+            return (
+              <div
+                key={index}
+                className=" col-12 col-md-3 text-center my-3 square-150"
+              >
+                <img
+                  src={img.image}
+                  className="  img-fluid"
+                  alt=""
+                  width="150"
+                  height="150"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
-    </>
-  );
+    );
+  };
+
+  const inactiveVariable = () => {
+    return (
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    console.log('about-doctor filter', doctorData);
+    // Object.keys(doctorData).length > 0 ? renderVariable=activeVariable : inactiveVariable
+    if (Object.keys(doctorData).length >= 1) {
+      setRenderVariable(activeVariable);
+    } else {
+      setRenderVariable(inactiveVariable);
+    }
+  }, [doctorData]);
+  return <>{renderVariable}</>;
 }

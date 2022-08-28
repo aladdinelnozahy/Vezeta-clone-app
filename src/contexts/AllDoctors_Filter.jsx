@@ -90,7 +90,7 @@ const FilterContextProvider = (props) => {
   useEffect(() => {
     // setHomeSearch(initialHomeSearchState);
 
-    console.log(filter);
+    console.log('main-file filter', filter);
   }, [filter]);
 
   return (

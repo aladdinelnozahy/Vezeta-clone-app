@@ -27,10 +27,6 @@ export default function AllDoctors_Results(props) {
   // using useHistory Hook to destruct history object
   const history = useHistory();
   // function which firing and redirect to doctor page
-  const handleRoute = () => {
-    // props.history.push('/doctor');
-    history.push('/doctor/5');
-  };
 
   // using useEffect Hook to start using API integration
   // we are using didMount life cycle method which start automatically after rendering
@@ -519,7 +515,7 @@ export default function AllDoctors_Results(props) {
           </div>
         </div>
         {props.doctorsData.map((doctor, index) => {
-          return <Item key={index} data={doctor} handleRoute={handleRoute} />;
+          return <Item key={index} data={doctor} history={history} />;
         })}
       </div>
     </>

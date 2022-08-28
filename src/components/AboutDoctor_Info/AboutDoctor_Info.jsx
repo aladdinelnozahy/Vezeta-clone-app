@@ -27,10 +27,9 @@ export default function AboutDoctor_Info() {
         </div>
         <div className="ms-5">
           <p className="text-grey ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            possimus, in aliquid natus veritatis vero? Commodi unde praesentium
-            corrupti ipsa. Cupiditate, repellendus laboriosam tempora et harum
-            asperiores sit aspernatur soluta.
+            anal fissures , hemorrhoids , pilonedal sinus ، all anal surgery all
+            abdomenal surgery masster dgree of General Surgery - Tanta
+            University & FRcs
           </p>
         </div>
       </div>
