@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import React from 'react';
 import './FAQ.css';
 export default function FAQ() {
@@ -21,8 +22,8 @@ export default function FAQ() {
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  How Can I Search and Book Same Day Appointment with the best
-                  Doctor?
+                  {t('howcansearchfaq')}
+                  
                 </button>
               </h2>
               <div
@@ -32,13 +33,7 @@ export default function FAQ() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body accordion-body-md text-grey fw-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi officia iste nulla, praesentium illo veritatis sequi,
-                  beatae exercitationem iure nam voluptatibus. Neque dolor illo,
-                  aperiam laudantium assumenda similique consectetur eligendi
-                  labore dolore earum tempora ad cum sit natus, asperiores
-                  quidem. Nemo, non. Explicabo eaque consectetur, iusto vero
-                  ratione beatae. Aspernatur.
+                {t('faqbody')}
                 </div>
               </div>
             </div>
@@ -52,8 +47,8 @@ export default function FAQ() {
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  How Can I Find the best Doctor That Accepts My Medical
-                  Insurance Plan?
+                  {t('showfinddocfaq')}
+                  
                 </button>
               </h2>
               <div
@@ -63,13 +58,7 @@ export default function FAQ() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body accordion-body-md  text-grey fw-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi officia iste nulla, praesentium illo veritatis sequi,
-                  beatae exercitationem iure nam voluptatibus. Neque dolor illo,
-                  aperiam laudantium assumenda similique consectetur eligendi
-                  labore dolore earum tempora ad cum sit natus, asperiores
-                  quidem. Nemo, non. Explicabo eaque consectetur, iusto vero
-                  ratione beatae. Aspernatur.
+                {t('faqbody')}
                 </div>
               </div>
             </div>
@@ -83,8 +72,8 @@ export default function FAQ() {
                   aria-expanded="false"
                   aria-controls="collapseThree"
                 >
-                  How to Book an Online Appointment with A Doctor?
-                </button>
+                {t('howtobookfaq')} 
+               </button>
               </h2>
               <div
                 id="collapseThree"
@@ -93,13 +82,7 @@ export default function FAQ() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body accordion-body-md  text-grey fw-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi officia iste nulla, praesentium illo veritatis sequi,
-                  beatae exercitationem iure nam voluptatibus. Neque dolor illo,
-                  aperiam laudantium assumenda similique consectetur eligendi
-                  labore dolore earum tempora ad cum sit natus, asperiores
-                  quidem. Nemo, non. Explicabo eaque consectetur, iusto vero
-                  ratione beatae. Aspernatur.
+                {t('faqbody')}
                 </div>
               </div>
             </div>
@@ -113,7 +96,7 @@ export default function FAQ() {
                   aria-expanded="false"
                   aria-controls="collapseFour"
                 >
-                  Can I choose a Doctor based on gender?
+                  {t('canichoose')}
                 </button>
               </h2>
               <div
@@ -123,13 +106,7 @@ export default function FAQ() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body accordion-body-md  text-grey fw-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi officia iste nulla, praesentium illo veritatis sequi,
-                  beatae exercitationem iure nam voluptatibus. Neque dolor illo,
-                  aperiam laudantium assumenda similique consectetur eligendi
-                  labore dolore earum tempora ad cum sit natus, asperiores
-                  quidem. Nemo, non. Explicabo eaque consectetur, iusto vero
-                  ratione beatae. Aspernatur.
+                {t('faqbody')}
                 </div>
               </div>
             </div>
@@ -143,7 +120,7 @@ export default function FAQ() {
                   aria-expanded="false"
                   aria-controls="collapseFive"
                 >
-                  How Can I Search for the best Doctor Based On a Higher Rate?
+                  {t('howcansearch')}
                 </button>
               </h2>
               <div
@@ -153,13 +130,7 @@ export default function FAQ() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body accordion-body-md  text-grey fw-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Commodi officia iste nulla, praesentium illo veritatis sequi,
-                  beatae exercitationem iure nam voluptatibus. Neque dolor illo,
-                  aperiam laudantium assumenda similique consectetur eligendi
-                  labore dolore earum tempora ad cum sit natus, asperiores
-                  quidem. Nemo, non. Explicabo eaque consectetur, iusto vero
-                  ratione beatae. Aspernatur.
+                {t('faqbody')}
                 </div>
               </div>
             </div>

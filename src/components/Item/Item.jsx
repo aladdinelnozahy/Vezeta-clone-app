@@ -4,6 +4,7 @@ import { Booking } from '../../components';
 import images from '../../constants/images';
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { t } from 'i18next';
 
 export default function Item(props) {
   const { i18n } = useTranslation();
@@ -28,7 +29,7 @@ export default function Item(props) {
         <div className="row">
           <div className="my-5 d-flex flex-column flex-lg-row justify-content-md-center justify-content-lg-center align-content-center">
             <div className="position-absolute top-0 end-0 bg-warning text-light text-capitalize py-2 px-4 cross-rounded fw-normal">
-              sponsored
+            {t('itemsponsored')}
             </div>
             <div className=" col-12 col-lg-8 order-lg-0 d-flex flex-wrap justify-content-evenly  justify-content-lg-start align-content-center">
               <div className=" mt-4 mb-4 mb-xl-0 mt-md-0 square-100  me-lg-5">
@@ -44,7 +45,8 @@ export default function Item(props) {
                 <div className="content ">
                   <div className="d-flex flex-column flex-md-row align-content-center">
                     <p className="text-capitalize text-normal-anchor fw-semibold fs-14 align-self-center">
-                      Center
+                    {t('itemcenter')}
+                      
                     </p>
                     <p className="text-capitalize text-center text-md-left">
                       &nbsp;
@@ -73,8 +75,10 @@ export default function Item(props) {
                       ></div>
                     </div>
                     <p className="text-capitalize fs-14  text-grey">
-                      overall rating from <span>{props.data.voting}</span>{' '}
-                      visitors
+                    {t('itemoverallrating')}
+                      <span>{props.data.voting}</span>{' '}
+                      {t('itemvisitors')}
+                      
                     </p>
                   </div>
                   <div className="badges d-flex flex-wrap justify-content-start align-content-center">
@@ -100,7 +104,8 @@ export default function Item(props) {
                       <a to="#" className=" hover-link text-normal-anchor">
                         {props.data.doctorSpecialization.specialization_english}
                       </a>
-                      &nbsp; specialized in&nbsp;
+                      &nbsp;
+                      {t('itemspecin')}&nbsp;
                       <a to="#" className=" hover-link text-normal-anchor">
                         {props.data.doctorSpecialization.specialization_english}
                       </a>
@@ -119,16 +124,24 @@ export default function Item(props) {
                   <div>
                     <p className="d-inline-block text-truncate p-trunc text-grey fw-semibold fs-12  my-1">
                       <i className="fa-solid fa-money-bill-1-wave  text-normal-anchor border-bottom border-danger pb-1"></i>
-                      &nbsp;&nbsp;&nbsp; Fees: <span>{props.data.fees}</span>
-                      &nbsp;EGP
+                      &nbsp;&nbsp;&nbsp; 
+                      {t('itemfees')}
+                      <span>{props.data.fees}</span>
+                      &nbsp;
+                      {t('itemegp')}
+                      
                     </p>
                   </div>
                   <div>
                     <p className="d-inline-block text-grey fw-semibold fs-12 text-normal-anchor  my-1">
                       <i className="fa-solid fa-clock   text-normal-anchor border-bottom border-danger pb-1"></i>
-                      &nbsp;&nbsp;&nbsp; Waiting Time:{' '}
+                      &nbsp;&nbsp;&nbsp; 
+                      {t('itemwaitingtime')}
+                      {' '}
                       <span>{props.data.clinicWaitingTime}</span>
-                      &nbsp;Minutes
+                      &nbsp;
+                      {t('itemminutes')}
+                      
                     </p>
                   </div>
                   <div>
@@ -137,8 +150,12 @@ export default function Item(props) {
                       &nbsp;&nbsp;&nbsp;{' '}
                       <span className="fw-bolder">16676</span>
                       &nbsp;
-                      <span>Cost of regular call</span>
-                      &nbsp;Minutes
+                      <span>
+                      {t('itemcostregcall')}
+                      </span>
+                      &nbsp;
+                      {t('itemminutes')}
+                      =
                     </p>
                   </div>
                 </div>
@@ -149,7 +166,8 @@ export default function Item(props) {
                 bookingArr={props.data.doctorClinics[0].clinicAppointment}
               />
               <p className="fs-14  text-grey text-center">
-                Reservation required, first-come, first-served
+              {t('itemreserreq')}
+                
               </p>
             </div>
           </div>

@@ -10,6 +10,7 @@ import * as React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './DownloadSide.css';
+import { t } from 'i18next';
 export default function DownloadSide() {
   // const theme = useTheme();
   const apple = (
@@ -119,44 +120,42 @@ export default function DownloadSide() {
               <Col lg={2}>
                 <Row className="firstDownRowrowicon ">{care}</Row>
                 <Row className="firstDownRowrowtittle ">
-                  All your healthcare needs
+                {t('healthcarehead')}
                 </Row>
                 <Row className="firstDownRowrowtext ">
-                  Search and book a clinic visit, home visit, or a
-                  teleconsultation. Order your medicine and book a service or
-                  operation.
+                {t('helthcarebody')}
+                  
                 </Row>
               </Col>
               <Col lg={2}>
                 <Row className="firstDownRowrowicon ">{parent}</Row>
                 <Row className="firstDownRowrowtittle ">
-                  Verified patient reviews
+                {t('verfiedhead')}
                 </Row>
                 <Row className="firstDownRowrowtext ">
-                  Doctor ratings are from patients who booked and visited the
-                  doctor through Vezeeta.
+                {t('verfiedbody')}
+                  
                 </Row>
               </Col>
               <Col lg={2}>
                 <Row className="firstDownRowrowicon ">{calander}</Row>
                 <Row className="firstDownRowrowtittle ">
-                  Your booking is confirmed
+                {t('bookingconfirmhead')}
                 </Row>
                 <Row className="firstDownRowrowtext ">
-                  Your booking is automatically confirmed, as the doctor
-                  specifies his working hours and is notified of the booking
-                  details.
+                {t('bookingconfirmbody')}
+                  
                 </Row>
               </Col>{' '}
               <Col lg={2}>
                 {' '}
                 <Row className="firstDownRowrowicon ">{sheild}</Row>
                 <Row className="firstDownRowrowtittle ">
-                  Book for free, and pay in the clinic
+                {t('bookfreehead')}
                 </Row>
                 <Row className="firstDownRowrowtext ">
-                  The consultation fees stated on Vezeeta are the actual
-                  doctor's fees with no extra charges.
+                {t('bookfreebody')}
+                  
                 </Row>
               </Col>{' '}
             </Row>
@@ -167,13 +166,12 @@ export default function DownloadSide() {
               <Col lg={5}>
                 <Row className="firstDownText mt-5 pt-3 mb-4">
                   {' '}
-                  Download Vezeeta Application{' '}
+                  {t('downloadhead')}
+                  {' '}
                 </Row>
                 <Row className="secondDownText mb-4">
                   {' '}
-                  Search, compare and book doctor consultations with ease. Order
-                  your medicines & get them deilvered within 60 minutes. Track
-                  your steps count & earn points on hitting the daily goal{' '}
+                  {t('downloadbody')}
                 </Row>
                 <Row>
                   <Col sx={4} className="thirdDownText">

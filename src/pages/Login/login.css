@@ -79,7 +79,6 @@ input,
 input:hover,
 .btnn:hover {
     opacity: 0.90;
-    color: white;
 }
 .fb {
     background-color: rgb(66 103 178);

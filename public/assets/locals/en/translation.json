@@ -90,19 +90,55 @@
     "signupbutton":"Sign Up",
 
 
+    "homesearchchoose":"Choose specialty",
+    "citysearchhome":"In This City",
+    "selectspeciality":"Select a specialty",
+    "orsearchname":"Or search by name",
+    "homesearchchoosecity":"Choose city",
+    "searchdocname":"Doctor name",
+    "homesearchbutton":"Search",
+
+
+    "aboutdocinfohead":"about the doctor",
+    "aboutdocinfobody":"anal fissures , hemorrhoids , pilonedal sinus ، all anal surgery all abdomenal surgery masster dgree of General Surgery - Tanta University & FRcs",
+    
+    "bookhead":"Book",
+    "loading":"Loading...",
+    "howcansearchfaq":"How Can I Search and Book Same Day Appointment with the bestDoctor?",
+    "faqbody":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi officia iste nulla, praesentium illo veritatis sequi, beatae exercitationem iure nam voluptatibus. Neque dolor illo, aperiam laudantium assumenda similique consectetur eligendi labore dolore earum tempora ad cum sit natus, asperiores quidem. Nemo, non. Explicabo eaque consectetur, iusto vero ratione beatae. Aspernatur.",
+    "showfinddocfaq":"How Can I Find the best Doctor That Accepts My MedicalInsurance Plan?",
+    "howtobookfaq":"How to Book an Online Appointment with A Doctor?",
+    "canichoose":"Can I choose a Doctor based on gender?",
+    "howcansearch":"How Can I Search for the best Doctor Based On a Higher Rate?",
+
+
 
 
     
     "docspecialise":"All Specialities",
     "filterhead":"Filter",
-    "":"",
-    "":"",
-    "":"",
-    "":"",
-    "":"",
-    "":""
+
+    
+    "bestdocineg":"Best Doctor in Egypt",
+    "bookorcall":"Book online or call",
+    "docs":"Doctors",
+    "profandconsult":"Professors and Consultants - More than",
+    "speciali":"Specialties",
 
 
+    "itemsponsored":"sponsored",
+    "itemcenter":"Center",
+    "itemoverallrating":" overall rating from ",
+    "itemvisitors":"visitors",
+    "itemspecin":"specialized in",
+    "itemfees":"Fees: ",
+    "itemegp":"EGP",
+    "itemwaitingtime":"Waiting Time:",
+    "itemminutes":"Minutes",
+    "itemcostregcall":"Cost of regular call",
+    "itemreserreq":" Reservation required, first-come, first-served"
+
+    
 
 
 

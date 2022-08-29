@@ -16,6 +16,7 @@ import {
   //   TabPanel,
 } from '../../components';
 import images from '../../constants/images';
+import { t } from 'i18next';
 // import ContainerOffer from '../offer/offerslider';
 // import MediaControlCard from '../pharmacy/pharmacy';
 // import ContainerCatdoc from '../categorydoctors/catDoctores';
@@ -72,7 +73,8 @@ export default function Home() {
                 className="d-flex align-items-start"
                 style={{ color: '#48545c' }}
               >
-                Better Healthcare for a Better Life
+                {t('sliderheader')}
+                {/* Better Healthcare for a Better Life */}
               </h2>
               <h4
                 className="d-flex align-items-start"

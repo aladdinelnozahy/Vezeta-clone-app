@@ -23,7 +23,7 @@ const UserProfile = () => {
     const [age, setAge] = useState('');
     const [id, setId] = useState('');
     // const [phoneNumber, setPhone] = useState('');
-    
+
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem('itemsId'));
         const items1 = JSON.parse(localStorage.getItem('itemsToken'));
@@ -68,25 +68,26 @@ const UserProfile = () => {
 
         const items1 = JSON.parse(localStorage.getItem('itemsToken'));
 
-        axios.post(`http://localhost:3000/user-edit-profile/${id}`, 
-        form,
-        {headers: {
-            'User-Token': items1,
-            // 'langexample':localStorage.getItem('i18Next')
-        }}
-        ).then(result =>
-         {
+        axios.post(`http://localhost:3000/user-edit-profile/${id}`,
+            form,
+            {
+                headers: {
+                    'User-Token': items1,
+                    // 'langexample':localStorage.getItem('i18Next')
+                }
+            }
+        ).then(result => {
             console.log(result);
-        //     if(result.status == 201){
-        //         history.push("/Login");
-        // }
-    }
-         )
+            //     if(result.status == 201){
+            //         history.push("/Login");
+            // }
+        }
+        )
     }
     return (
         <>
             <Container>
-               
+
                 <Row>
                     <Col sm={4}>
                         <Sidebar />
@@ -145,7 +146,7 @@ const UserProfile = () => {
                                                     placeholder=" email"
                                                     value={emil}
                                                     name="email"
-                                                onChange={(e) => setEmail(e.target.value)}
+                                                    onChange={(e) => setEmail(e.target.value)}
                                                 />
                                             </Col>
                                             {/* <small className="text-danger">{err.errorPassword}</small> */}
@@ -156,8 +157,8 @@ const UserProfile = () => {
 
 
                                     <Form.Group
-                            >
-                                {/* <Form.Label column className="mx-4" >
+                                    >
+                                        {/* <Form.Label column className="mx-4" >
                                     phone number
                                 </Form.Label>
                                 <Col className=" mx-2" >
@@ -170,11 +171,11 @@ const UserProfile = () => {
                                         onChange={e => setPhone(e.target.value)} 
                                     />
                                 </Col> */}
-                                {/* <small className="text-danger">{err.errorPassword}</small> */}
-                                {/* </Row> */}
-                            </Form.Group>
+                                        {/* <small className="text-danger">{err.errorPassword}</small> */}
+                                        {/* </Row> */}
+                                    </Form.Group>
 
-                                    <Form.Group
+                                    {/* <Form.Group
                                     // as={Row} className="mb-3" controlId="formPlaintextEmail"
                                     >
                                         <Row className="p-3">
@@ -188,12 +189,12 @@ const UserProfile = () => {
                                                     value={pass}
                                                     name="password"
                                                     required
-                                                    onChange={e => setPassword(e.target.value)} 
+                                                    onChange={e => setPassword(e.target.value)}
 
                                                 />
                                             </Col>
                                         </Row>
-                                    </Form.Group>
+                                    </Form.Group> */}
 
 
 
@@ -211,7 +212,7 @@ const UserProfile = () => {
                                                     placeholder=" age"
                                                     value={age}
                                                     name="age"
-                                                    onChange={e => setAge(e.target.value)} 
+                                                    onChange={e => setAge(e.target.value)}
                                                 />
                                             </Col>
                                             {/* <small className="text-danger">{err.errorPassword}</small> */}
@@ -220,22 +221,53 @@ const UserProfile = () => {
 
                                     </Form.Group>
 
+
+
+
+
+
                                     <Form.Group
-                            // as={Row} className="mb-3" controlId="formPlaintextPassword"
-                            >
-                                <Form.Label column className="mx-4">
-                                    UPLOAD IMAGE
-                                </Form.Label>
-                                <Col className="mx-2">
+                                    // as={Row} className="mb-3" controlId="formPlaintextPassword"
+                                    >
 
-                                <input
-                                onChange={e => setImg(e.target.files[0])} 
-                                type="file" name='userProfileImagePath' />
+                                        <Row className='p-3  mx-2'>
+                                            <Form.Label column sm="3">
+                                            Your Current IMAGE
+                                            </Form.Label>
+                                            <Col sm="9">
+                                            <div className='container'>
+                                                <img className='img-thumbnail siize' src={img} />
+
+                                            </div>
+                                            </Col>
+                                            {/* <small className="text-danger">{err.errorPassword}</small> */}
+
+                                        </Row>
+                                       
+
+                                    </Form.Group>
 
 
-                                </Col>
 
-                            </Form.Group>
+
+
+
+                                    <Form.Group
+                                    // as={Row} className="mb-3" controlId="formPlaintextPassword"
+                                    >
+                                        <Form.Label column className="mx-4">
+                                            UPLOAD IMAGE
+                                        </Form.Label>
+                                        <Col className="mx-2">
+
+                                            <input
+                                                onChange={e => setImg(e.target.files[0])}
+                                                type="file" name='userProfileImagePath' />
+
+
+                                        </Col>
+
+                                    </Form.Group>
 
                                     <Form.Group
                                     // as={Row} className="mb-3" controlId="formPlaintextPassword"

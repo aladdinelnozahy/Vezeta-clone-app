@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import './Clinic_Gallery.css';
 import images from '../../constants/images';
 import { AboutDoctorContext } from '../../contexts/AboutDoctor';
+import { t } from 'i18next';
 
 export default function Clinic_Gallery() {
   const { doctorData, setDoctorData } = useContext(AboutDoctorContext);
@@ -47,7 +48,7 @@ export default function Clinic_Gallery() {
   const inactiveVariable = () => {
     return (
       <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
+        <span className="visually-hidden">{t('loading')}</span>
       </div>
     );
   };

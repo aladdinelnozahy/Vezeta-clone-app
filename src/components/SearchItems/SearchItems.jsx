@@ -9,6 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { t } from 'i18next';
 
 export default function SearchItems() {
   const {
@@ -96,7 +97,7 @@ export default function SearchItems() {
         <Col md>
           <FloatingLabel
             controlId="floatingSelectGrid"
-            label="Select a specialty"
+            label={t('selectspeciality')}
             className="fs-14 fw-semibold"
           >
             <Form.Select
@@ -106,7 +107,11 @@ export default function SearchItems() {
               value={specialty}
               onChange={(event) => selectHandler(event)}
             >
-              <option value="">Choose specialty</option>
+              <option value="">
+                {t('homesearchchoose')}
+
+                </option>
+
               {specialization.map((item, index) => {
                 return (
                   <option value={item} key={index}>
@@ -120,7 +125,8 @@ export default function SearchItems() {
         <Col md>
           <FloatingLabel
             controlId="floatingSelectGrid"
-            label="In this city"
+            label={t('citysearchhome')}
+
             className="fs-14 fw-semibold"
           >
             <Form.Select
@@ -130,7 +136,7 @@ export default function SearchItems() {
               onChange={(event) => selectHandler(event)}
               value={city}
             >
-              <option value="">Choose city</option>
+              <option value="">{t('homesearchchoosecity')}</option>
               {location.map((item, index) => {
                 return (
                   <option value={item} key={index}>
@@ -146,14 +152,14 @@ export default function SearchItems() {
         <Col md>
           <FloatingLabel
             controlId="floatingPassword"
-            label="Or search by name"
+            label={t('orsearchname')}
             className="fs-14 fw-semibold"
           >
             <Form.Control
               type="text"
-              placeholder="Doctor name"
+              placeholder={t('searchdocname')}
               className="rounded-0 text-normal-anchor text-start fs-6 fw-bold"
-              value={doctorName}
+              value={t('searchdocname')}
               data_attribute="inputText"
               onChange={(event) => inputTextHandler(event)}
               onBlur={(event) => handleBlur(event)}
@@ -172,7 +178,9 @@ export default function SearchItems() {
             onClick={(e) => searchHandler(e)}
           >
             <i className="fa-solid fa-magnifying-glass"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;Search
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {t('homesearchbutton')}
+
           </Button>
         </Col>
       </Row>

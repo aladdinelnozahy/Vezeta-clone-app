@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBox.css';
 import SearchItems from '../SearchItems/SearchItems';
+import { t } from 'i18next';
 export default function SearchBox() {
   return (
     <>
@@ -9,7 +10,7 @@ export default function SearchBox() {
           <div className=" border-bottom border-primary mb-5 py-3 d-flex justify-content-center align-items-center">
             <i className="fa-solid fa-calendar-check  fs-1 me-2 text-normal-anchor"></i>
             <p className="text-uppercase text-normal-anchor fs-6 fw-bold my-0">
-              Book A Doctor
+              {t('bookdocheader')}
             </p>
           </div>
           <div className="py-5"></div>

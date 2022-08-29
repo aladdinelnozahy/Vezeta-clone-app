@@ -182,7 +182,7 @@ export function App4() {
                   id="demo-controlled-open-select-label"
                   style={{ color: '#0070cd' }}
                 >
-                  Choose specialty
+                  {t('homesearchchoose')}
                 </InputLabel>
                 <Select
                   labelId="demo-controlled-open-select-label"
@@ -195,7 +195,7 @@ export function App4() {
                   onChange={handleChange2}
                 >
                   <MenuItem value="">
-                    <em>Choose specialty</em>
+                    <em>{t('homesearchchoose')}</em>
                   </MenuItem>
                   <MenuItem value={10}>Ten</MenuItem>
                   <MenuItem value={20}>Twenty</MenuItem>
@@ -216,7 +216,8 @@ export function App4() {
                 <span>
                   <SearchIcon />
                 </span>{' '}
-                Search
+                {t('homesearchbutton')}
+                
               </Button>
             </span>
           </div>
