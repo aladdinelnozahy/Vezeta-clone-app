@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './AllDoctors_Results.css';
 import Item from '../../components/Item/Item';
-import { t } from 'i18next';
 export default function AllDoctors_Results(props) {
   // state for sorting elements
   const [sortItems, setSortItems] = useState([
@@ -18,7 +17,7 @@ export default function AllDoctors_Results(props) {
   // using useState to store doctors result from API
   const [doctors, setDoctors] = useState([]);
   // using useState to general data from API
-  const [generalData, setGeneralData] = useState([]);
+  // const [generalData, setGeneralData] = useState([]);
   // handle choosing element
   const handleSortSelection = (index) => {
     setCurrentSortItem(() => sortItems[index]);
@@ -28,25 +27,21 @@ export default function AllDoctors_Results(props) {
   // using useHistory Hook to destruct history object
   const history = useHistory();
   // function which firing and redirect to doctor page
-  const handleRoute = () => {
-    // props.history.push('/doctor');
-    history.push('/doctor/5');
-  };
 
   // using useEffect Hook to start using API integration
   // we are using didMount life cycle method which start automatically after rendering
-  useEffect(() => {
-    axios
-      .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search')
-      // .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search?page=4')
-      .then((res) => {
-        // set doctors from API response
-        setDoctors(res.data.body);
-        setGeneralData(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {});
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search')
+  //     // .get('https://vezeeta-data-api.herokuapp.com/user-doctor-search?page=4')
+  //     .then((res) => {
+  //       // set doctors from API response
+  //       setDoctors(res.data.body);
+  //       setGeneralData(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {});
+  // }, []);
 
   return (
     <>
@@ -54,11 +49,10 @@ export default function AllDoctors_Results(props) {
         <div className="data  d-flex flex-wrap justify-content-between align-items-center px-md-3 my-3">
           <div className="data--info d-flex justify-content-center align-content-center  d-block order-1 order-md-0">
             <p className="text-dark-silver fs-19 fw-bold my-0 d-none d-md-block">
-              {t('docspecialise')}
-
+              All Specialities
             </p>
             <p className="text-grey fs-14 lh-xlg  my-0">
-              &nbsp;<span>{generalData.totalDoctors}</span>&nbsp;Doctors
+              &nbsp;<span>{props.generalData.totalDoctors}</span>&nbsp;Doctors
             </p>
           </div>
           <div className="d-block w-50 d-md-none ">
@@ -68,10 +62,7 @@ export default function AllDoctors_Results(props) {
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
-              <i className="fa-solid fa-filter"></i> 
-              Filter
-              {/* {t('filterhead')} */}
-
+              <i className="fa-solid fa-filter"></i> Filter
             </button>
 
             <div
@@ -524,7 +515,7 @@ export default function AllDoctors_Results(props) {
           </div>
         </div>
         {props.doctorsData.map((doctor, index) => {
-          return <Item key={index} data={doctor} handleRoute={handleRoute} />;
+          return <Item key={index} data={doctor} history={history} />;
         })}
       </div>
     </>

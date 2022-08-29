@@ -11,7 +11,30 @@ export default function AboutDoctor_Info() {
 
   return (
     <>
-      <div className="info col-12 col-xl-7 order-2 border border-5">
+          <div className="info  rounded-4 bg-light py-2 px-4 my-3">
+        <div className=" ">
+          <p
+            className="accordion-header text-primary fw-bold px-4 py-4 accordion-button collapsed text-capitalize"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse-title"
+            aria-expanded="true"
+            aria-controls="collapse-title"
+            id="title"
+          >
+            <i className="fa-solid fa-info me-3 fs-4 pb-1 border-bottom border-2 border-danger float-start"></i>
+            about the doctor
+          </p>
+        </div>
+        <div className="ms-5">
+          <p className="text-grey ">
+            anal fissures , hemorrhoids , pilonedal sinus ، all anal surgery all
+            abdomenal surgery masster dgree of General Surgery - Tanta
+            University & FRcs
+          </p>
+        </div>
+        
+      </div>
+      {/* <div className="info col-12 col-xl-7 order-2 border border-5">
         <div className="">console</div>
         <div className="d-flex justify-content-start flex-wrap align-items-center">
           <p
@@ -41,7 +64,7 @@ export default function AboutDoctor_Info() {
             {showMore ? 'More' : 'Less'}
           </a>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

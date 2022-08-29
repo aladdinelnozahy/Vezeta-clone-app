@@ -2,6 +2,10 @@ import React from 'react';
 import './Booking.css';
 
 export default function Booking(props) {
+  const handleBooking = (e) => {
+    const attribute = e.target.attributes.data_attribute.nodeValue;
+    console.log(attribute);
+  };
   return (
     <>
       <div className="d-flex justify-content-evenly align-content-center col-12 col-md-6 offset-md-3 offset-lg-0 col-lg-12  ">
@@ -59,7 +63,13 @@ export default function Booking(props) {
               <span className="fw-semibold">{props.bookingArr[0].time1}</span>
             </p>
           </div>
-          <div className="card-footer bg-danger text-center fs-12 fw-bold">
+          <div
+            className="card-footer bg-danger text-center fs-12 fw-bold"
+            data_attribute={0}
+            onClick={(e) => {
+              handleBooking(e);
+            }}
+          >
             Book
           </div>
         </div>
@@ -76,7 +86,13 @@ export default function Booking(props) {
               <span className="fw-semibold">{props.bookingArr[1].time2}</span>
             </p>
           </div>
-          <div className="card-footer bg-danger text-center fs-12 fw-bold">
+          <div
+            className="card-footer bg-danger text-center fs-12 fw-bold"
+            data_attribute={1}
+            onClick={(e) => {
+              handleBooking(e);
+            }}
+          >
             Book
           </div>
         </div>
@@ -93,7 +109,13 @@ export default function Booking(props) {
               <span className="fw-semibold">{props.bookingArr[2].time3}</span>
             </p>
           </div>
-          <div className="card-footer bg-danger text-center fs-12 fw-bold">
+          <div
+            className="card-footer bg-danger text-center fs-12 fw-bold"
+            data_attribute={2}
+            onClick={(e) => {
+              handleBooking(e);
+            }}
+          >
             Book
           </div>
         </div>

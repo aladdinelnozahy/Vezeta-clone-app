@@ -74,7 +74,8 @@ export default function CategoryDoctors() {
             >
               <div className="p-0">
                 <div>
-                  <button onClick={handleChange2} className="btn btn-light ">
+                  <button onClick={handleChange2}
+                  className="btn btn-light ">
                     <ArrowBackIosNewIcon sx={{ height: 11, width: 11 }} />
                   </button>
                 </div>

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './signup.css'
-import { Col, Form, Row } from 'react-bootstrap';
+import { Col, Form } from 'react-bootstrap';
 
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import CountrySelect from '../../components/UserProfile/countryDropDown';
-import { FormControlLabel, Radio, RadioGroup, Switch } from '@mui/material';
 import axios from 'axios';
-import { Redirect, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import { t } from 'i18next';
 
 const SignUp = () => {
@@ -33,13 +31,12 @@ const SignUp = () => {
         form.append('userProfileImagePath', path)
         form.append('userAge', conf)
         form.append('phoneNumber', phone)
-// console.dir(form);
         axios.post('http://localhost:3000/user-register', form).then(result =>
          {
-            // console.log(result);
-        //     if(result.status == 201){
-        //         history.push("/Login");
-        // }
+            console.log(result);
+            if(result.status == 201){
+                history.push("/Login");
+        }
     }
          )
     }

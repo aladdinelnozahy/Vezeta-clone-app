@@ -8,31 +8,31 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useTranslation } from "react-i18next";
 import i18next from 'i18next';
 
-const languages=[
+const languages = [
   {
-    code:'ar',
+    code: 'ar',
     name: 'العربية',
-    country_code:'sa',
-    dir:"rtl"
+    country_code: 'sa',
+    dir: "rtl"
   },
   {
-    code:'en',
+    code: 'en',
     name: 'English',
-    country_code:'gb'
+    country_code: 'gb'
   }
-  
+
 
 ]
 
 export default function Navbar_c() {
-  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
-  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
+  const currentLanguageCode = localStorage.getItem('i18nextLng') || 'en'
+  const currentLanguage = languages.find((l) => l.code == currentLanguageCode)
   const { t } = useTranslation()
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(currentLanguage)
-    document.body.dir= currentLanguage.dir||'ltr'
-  },[currentLanguage, t])
+    document.body.dir = currentLanguage.dir || 'ltr'
+  }, [currentLanguage, t])
   return (
     <>
       {/* {t('welcome_message')} */}
@@ -57,9 +57,9 @@ export default function Navbar_c() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                {t('canvas')}
+                  {t('canvas')}
 
-                  
+
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -70,7 +70,7 @@ export default function Navbar_c() {
                     className=" border border-while "
                     id="NavLinkHeaderLinkSing"
                   >
-                {t('signup')}
+                    {t('signup')}
                   </Nav.Link>
                   <Nav.Link
                     href="/"
@@ -85,7 +85,7 @@ export default function Navbar_c() {
                     active
                     className="NavLinkHeaderLink"
                   >
-                {t('login')}
+                    {t('login')}
                   </Nav.Link>
                   <Nav.Link
                     href="#action1"
@@ -100,7 +100,7 @@ export default function Navbar_c() {
                     active
                     className="NavLinkHeaderLink"
                   >
-                {t('vezeta_doctor')}
+                    {t('vezeta_doctor')}
                   </Nav.Link>
                   <Nav.Link
                     href="#action1"
@@ -115,71 +115,23 @@ export default function Navbar_c() {
                     active
                     className="NavLinkHeaderLink"
                   >
-                {t('contactus')}
+                    {t('contactus')}
                   </Nav.Link>
-                  
-
-
-
-
-
-
-
                   <NavDropdown
                     title="Language"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}>
 
-                    {languages.map(({code,name,country_code}) =>(
+                    {languages.map(({ code, name, country_code }) => (
                       <li key={country_code}>
-                        <button className='dropdown-item' onClick={()=>i18next.changeLanguage(code)}>
-                          <span className={`flag-icon flag-icon-${country_code} mx-2`}> 
+                        <button className='dropdown-item' onClick={() => i18next.changeLanguage(code)}>
+                          <span className={`flag-icon flag-icon-${country_code} mx-2`}>
                             {name}
-                          </span>  
+                          </span>
                         </button>
                       </li>
 
                     ))}
-
-                    {/* <NavDropdown.Item onClick={()=>i18next.changeLanguage(code)}>العربية</NavDropdown.Item>  */}
-
-
                   </NavDropdown>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  
-                  {/* <Nav.Link
-                    href="#action1"
-                    active
-                    className="NavLinkHeaderLink"
-                  >
-                    |
-                  </Nav.Link>
-
-                  <NavDropdown
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="/UserProfile">User Profile</NavDropdown.Item>
-                    <NavDropdown.Item href="">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown> */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

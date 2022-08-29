@@ -1,6 +1,63 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { FilterContext } from '../../contexts/AllDoctors_Filter';
 import './AllDoctors_Sidebar.css';
 export default function AllDoctors_Sidebar() {
+  const {
+    gender,
+    setGender,
+    setExamination,
+    entity,
+    setEntity,
+    availability,
+    setAvailability,
+    title,
+    setTitle,
+    setDoctorName,
+    filter,
+  } = useContext(FilterContext);
+  const [filterQuery, setFilterQuery] = useState([]);
+
+  const shoot = (e) => {
+    const attribute = e.target.attributes.data_attribute.nodeValue;
+    const value = e.target.value;
+    console.log(value);
+    setDoctorName('Doctor name');
+    if (attribute == 'examination') {
+      console.log('value is', value);
+      setExamination(value);
+    } else if (attribute == 'title') {
+      // set title value
+      let checkedValue = e.target.checked;
+      let newTitle = [...title]; // copying the old datas array
+      let ele = newTitle.findIndex((v) => v['name'] === value);
+      newTitle[ele]['value'] = checkedValue; // replace e.target.value with whatever you want to change it to
+      setTitle(newTitle);
+    } else if (attribute == 'entity') {
+      // set entity value
+      let checkedValue = e.target.checked;
+      let newEntity = [...entity]; // copying the old datas array
+      let ele = newEntity.findIndex((v) => v['name'] === value);
+      newEntity[ele]['value'] = checkedValue; // replace e.target.value with whatever you want to change it to
+      setEntity(newEntity);
+    } else if (attribute == 'availability') {
+      // set availability value
+
+      let checkedValue = e.target.checked;
+      let newAvailability = [...availability]; // copying the old datas array
+      let ele = newAvailability.findIndex((v) => v['name'] === value);
+      newAvailability[ele]['value'] = checkedValue; // replace e.target.value with whatever you want to change it to
+      setAvailability(newAvailability);
+    } else if (attribute == 'gender') {
+      // set gender value
+
+      let checkedValue = e.target.checked;
+      let newGender = [...gender]; // copying the old datas array
+      let ele = newGender.findIndex((v) => v['name'] === value);
+      newGender[ele]['value'] = checkedValue; // replace e.target.value with whatever you want to change it to
+      setGender(newGender);
+    }
+  };
+
   return (
     <>
       <div className="col-12 col-lg-2 rounded-4  d-none d-lg-block">
@@ -34,8 +91,12 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    // checked={title[0]['value']}
+                    value="professor"
                     id="professor"
+                    data_attribute="title"
+                    onChange={(event) => shoot(event)}
+                    // onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label fs-12" htmlFor="professor">
                     Professor
@@ -45,8 +106,10 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="lecturer"
                     id="lecturer"
+                    data_attribute="title"
+                    onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label  fs-12" htmlFor="lecturer">
                     Lecturer
@@ -56,8 +119,10 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="consultant"
                     id="consultant"
+                    data_attribute="title"
+                    onChange={(event) => shoot(event)}
                   />
                   <label
                     className="form-check-label  fs-12"
@@ -70,8 +135,10 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="specialist"
                     id="specialist"
+                    data_attribute="title"
+                    onChange={(event) => shoot(event)}
                   />
                   <label
                     className="form-check-label  fs-12"
@@ -106,13 +173,12 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
-                    id="professor"
+                    value="female"
+                    id="female"
+                    data_attribute="gender"
+                    onChange={(event) => shoot(event)}
                   />
-                  <label
-                    className="form-check-label  fs-12"
-                    htmlFor="professor"
-                  >
+                  <label className="form-check-label  fs-12" htmlFor="female">
                     Female
                   </label>
                 </div>
@@ -120,10 +186,12 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
-                    id="lecturer"
+                    value="male"
+                    data_attribute="gender"
+                    id="male"
+                    onChange={(event) => shoot(event)}
                   />
-                  <label className="form-check-label  fs-12" htmlFor="lecturer">
+                  <label className="form-check-label  fs-12" htmlFor="male">
                     Male
                   </label>
                 </div>
@@ -153,8 +221,10 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="any"
                     id="any-day"
+                    data_attribute="availability"
+                    onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label  fs-12" htmlFor="any-day">
                     Any Day
@@ -164,33 +234,24 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="today"
                     id="today"
+                    data_attribute="availability"
+                    onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label  fs-12" htmlFor="today">
                     Today
                   </label>
                 </div>
+
                 <div className="form-check">
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
-                    id="consultant"
-                  />
-                  <label
-                    className="form-check-label  fs-12"
-                    htmlFor="consultant"
-                  >
-                    Consultant
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input  fs-12"
-                    type="checkbox"
-                    value=""
+                    value="tomorrow"
                     id="tomorrow"
+                    data_attribute="availability"
+                    onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label  fs-12" htmlFor="tomorrow">
                     Tomorrow
@@ -217,13 +278,18 @@ export default function AllDoctors_Sidebar() {
               aria-labelledby="examination"
               data-bs-parent="#accordionTitle"
             >
-              <div className="accordion-body bg-light text-grey fs-12 fw-semibold text-capitalize">
+              <div
+                className="accordion-body bg-light text-grey fs-12 fw-semibold text-capitalize"
+                onChange={(event) => shoot(event)}
+              >
                 <div className="form-check">
                   <input
                     className="form-check-input  fs-12"
                     type="radio"
                     name="flexRadioDefault"
                     id="any"
+                    value="any"
+                    data_attribute="examination"
                   />
                   <label className="form-check-label  fs-12" htmlFor="any">
                     Any
@@ -235,6 +301,8 @@ export default function AllDoctors_Sidebar() {
                     type="radio"
                     name="flexRadioDefault"
                     id="less-50"
+                    value="less-50"
+                    data_attribute="examination"
                   />
                   <label className="form-check-label  fs-12" htmlFor="less-50">
                     Less than 50
@@ -246,6 +314,8 @@ export default function AllDoctors_Sidebar() {
                     type="radio"
                     name="flexRadioDefault"
                     id="50-100"
+                    value="50-100"
+                    data_attribute="examination"
                   />
                   <label className="form-check-label  fs-12" htmlFor="50-100">
                     From 50 to 100
@@ -257,6 +327,8 @@ export default function AllDoctors_Sidebar() {
                     type="radio"
                     name="flexRadioDefault"
                     id="100-200"
+                    value="100-200"
+                    data_attribute="examination"
                   />
                   <label className="form-check-label  fs-12" htmlFor="100-200">
                     From 100 to 200
@@ -268,6 +340,8 @@ export default function AllDoctors_Sidebar() {
                     type="radio"
                     name="flexRadioDefault"
                     id="200-300"
+                    value="200-300"
+                    data_attribute="examination"
                   />
                   <label className="form-check-label  fs-12" htmlFor="200-300">
                     From 200 to 300
@@ -279,6 +353,8 @@ export default function AllDoctors_Sidebar() {
                     type="radio"
                     name="flexRadioDefault"
                     id="greater-300"
+                    value="greater-300"
+                    data_attribute="examination"
                   />
                   <label
                     className="form-check-label  fs-12"
@@ -313,8 +389,10 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="hospital"
                     id="hospital"
+                    data_attribute="entity"
+                    onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label  fs-12" htmlFor="hospital">
                     Hospital
@@ -324,8 +402,10 @@ export default function AllDoctors_Sidebar() {
                   <input
                     className="form-check-input  fs-12"
                     type="checkbox"
-                    value=""
+                    value="clinic"
                     id="clinic"
+                    data_attribute="entity"
+                    onChange={(event) => shoot(event)}
                   />
                   <label className="form-check-label  fs-12" htmlFor="clinic">
                     Clinic

@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { FilterContext } from '../../contexts/AllDoctors_Filter';
 import './Home.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
+import { SearchBox, SearchItems } from '../../components';
 import { MdCall } from 'react-icons/md';
 import { App4, TabPanel } from '../../components/Taps/Taps';
-
-import { useTranslation } from "react-i18next";
-import i18next from 'i18next';
 // import Row from "react-bootstrap/Row";
 import {
   Offers,
@@ -22,101 +21,95 @@ import images from '../../constants/images';
 // import ContainerCatdoc from '../categorydoctors/catDoctores';
 // import Mediadownloud from '../downloudside/downloud';
 
-
-
-const languages=[
-  {
-    code:'ar',
-    name: 'العربية',
-    country_code:'sa',
-    dir:"rtl"
-  },
-  {
-    code:'en',
-    name: 'English',
-    country_code:'gb'
-  }
-  
-
-]
 export default function Home() {
-  const currentLanguageCode=localStorage.getItem('i18nextLng')||'en'
-  const currentLanguage=languages.find((l)=> l.code == currentLanguageCode)
-  const { t } = useTranslation()
-
-  useEffect(()=>{
-    console.log(currentLanguage)
-    document.body.dir= currentLanguage.dir||'ltr'
-  },[currentLanguage, t])
+  const { filter } = useContext(FilterContext);
+  useEffect(() => {
+    console.log('home filter', filter);
+  }, [filter]);
   return (
     <>
-      <Container fluid className="parentImgSlider px-0">
-        <Carousel fade className="d-lg-block d-none">
-          <Carousel.Item>
-            <img
-              className="d-block w-100 imgSlider"
-              src={images.homecovernewen1}
-              alt="frist slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 imgSlider"
-              src={images.homecovernewen2}
-              alt="Second slide"
-            />
+      <div className="container-fluid">
+        <div className="row">
+          <Container fluid className="parentImgSlider px-0">
+            <Carousel fade className="d-lg-block d-none">
+              <Carousel.Item>
+                <img
+                  className="d-block col-12 imgSlider"
+                  src={images.homecovernewen1}
+                  alt="frist slide"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block col-12 imgSlider"
+                  src={images.homecovernewen2}
+                  alt="Second slide"
+                />
 
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 imgSlider"
-              src={images.homecovernewen3}
-              alt="Third slide"
-            />
+                <Carousel.Caption></Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block col-12 imgSlider"
+                  src={images.homecovernewen3}
+                  alt="Third slide"
+                />
 
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 imgSlider"
-              src={images.homecovernewen4}
-              alt="Third slide"
-            />
+                <Carousel.Caption></Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block col-12 imgSlider"
+                  src={images.homecovernewen4}
+                  alt="Third slide"
+                />
 
-            <Carousel.Caption></Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-        <div className="box carousel-caption d-lg-block d-none  ">
-          <h2 className="d-flex align-items-start" style={{ color: '#48545c' }}>
-          {t('sliderheader')}          </h2>
-          <h4 className="d-flex align-items-start" style={{ color: '#6f7072' }}>
-          {t('bookonlineheader')}
-            &nbsp;
-            <span style={{ color: 'red' }}>
-              <MdCall />
-            </span>
-            &nbsp;16676
-          </h4>
-          <TabPanel />
+                <Carousel.Caption></Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+            <div className="box carousel-caption d-lg-block d-none  ">
+              <h2
+                className="d-flex align-items-start"
+                style={{ color: '#48545c' }}
+              >
+                Better Healthcare for a Better Life
+              </h2>
+              <h4
+                className="d-flex align-items-start"
+                style={{ color: '#6f7072' }}
+              >
+                Book online or&nbsp;
+                <span style={{ color: 'red' }}>
+                  <MdCall />
+                </span>
+                &nbsp;16676
+              </h4>
+              <TabPanel />
+            </div>
+            <div className="container-fluid">
+              <div className="boxSearch row d-flex justify-content-center align-content-center">
+                <div className="col-9 d-flex justify-content-center align-content-center py-4   rounded-3 bg-light">
+                  <SearchItems />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              {' '}
+              <Pharmacy />
+            </div>
+            <div>
+              <Offers />
+            </div>
+            <div>
+              <CategoryDoctors />
+            </div>
+            <div>
+              <DownloadSide />
+            </div>
+          </Container>
         </div>
-        <div className="boxSearch d-lg-flex justify-content-center d-none ">
-          <App4 />
-        </div>
-        <div>
-          {' '}
-          <Pharmacy />
-        </div>
-        <div>
-          <Offers />
-        </div>
-        <div>
-          <CategoryDoctors />
-        </div>
-        <div>
-          <DownloadSide />
-        </div>
-      </Container>
+      </div>
     </>
   );
 }
